@@ -1,11 +1,26 @@
-# Cloudflare Security & Performance Headers
+# Cloudflare Security & Performance Headers (Production Grade Hardened)
 /*
+  # Cegah clickjacking (tidak bisa di-embed di iframe situs luar)
   X-Frame-Options: DENY
+  
+  # Cegah MIME-type sniffing
   X-Content-Type-Options: nosniff
+  
+  # Proteksi privasi referrer
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  
+  # Matikan akses sensor/fitur browser sensitif yang tidak digunakan
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  
+  # Paksa enkripsi HTTPS selama 1 tahun & preload
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  
+  # Filter cross-site scripting lawas
   X-XSS-Protection: 1; mode=block
+  
+  # Content Security Policy (CSP) ketat untuk mencegah XSS & data injection
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me;
 
 /assets/*
+  # Caching statis optimal & immutable
   Cache-Control: public, max-age=31536000, immutable

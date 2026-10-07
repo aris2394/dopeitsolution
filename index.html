@@ -90,10 +90,6 @@
       </nav>
 
       <div class="nav-actions">
-        <div class="badge-uptime">
-          <span class="pulse-dot"></span>
-          <span>SLA 99.9% Uptime</span>
-        </div>
         <a href="#kontak" class="btn btn-primary btn-sm">Konsultasi Gratis</a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Menu navigasi mobile">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -622,22 +618,22 @@
             <div class="form-group-row">
               <div class="form-group">
                 <label for="fullName">Nama Lengkap *</label>
-                <input type="text" id="fullName" class="form-input" placeholder="Contoh: Budi Santoso" required>
+                <input type="text" id="fullName" class="form-input" placeholder="Contoh: Budi Santoso" maxlength="100" autocomplete="name" required>
               </div>
               <div class="form-group">
                 <label for="companyName">Nama Perusahaan / Instansi *</label>
-                <input type="text" id="companyName" class="form-input" placeholder="PT Sukses Bersama" required>
+                <input type="text" id="companyName" class="form-input" placeholder="PT Sukses Bersama" maxlength="120" autocomplete="organization" required>
               </div>
             </div>
 
             <div class="form-group-row">
               <div class="form-group">
                 <label for="workEmail">Email Bisnis *</label>
-                <input type="email" id="workEmail" class="form-input" placeholder="budi@perusahaan.com" required>
+                <input type="email" id="workEmail" class="form-input" placeholder="budi@perusahaan.com" maxlength="120" autocomplete="email" required>
               </div>
               <div class="form-group">
                 <label for="phoneNumber">Nomor Telepon / WA *</label>
-                <input type="tel" id="phoneNumber" class="form-input" placeholder="0812xxxxxxxx" required>
+                <input type="tel" id="phoneNumber" class="form-input" placeholder="0812xxxxxxxx" maxlength="20" pattern="[0-9\+\-\s]{8,20}" autocomplete="tel" required>
               </div>
             </div>
 
@@ -655,7 +651,7 @@
 
             <div class="form-group">
               <label for="projectBrief">Ringkasan Kendala / Rencana Proyek *</label>
-              <textarea id="projectBrief" class="form-textarea" placeholder="Jelaskan kendala jaringan saat ini, jumlah titik akses, atau spesifikasi server yang dibutuhkan..." required></textarea>
+              <textarea id="projectBrief" class="form-textarea" placeholder="Jelaskan kendala jaringan saat ini, jumlah titik akses, atau spesifikasi server yang dibutuhkan..." maxlength="1000" required></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">

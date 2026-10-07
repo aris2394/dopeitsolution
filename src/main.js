@@ -45,14 +45,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalBtnText = submitBtn.innerHTML;
 
-      // Ambil nilai data formulir
-      const fullName = document.getElementById('fullName')?.value.trim() || '-';
-      const companyName = document.getElementById('companyName')?.value.trim() || '-';
-      const workEmail = document.getElementById('workEmail')?.value.trim() || '-';
-      const phoneNumber = document.getElementById('phoneNumber')?.value.trim() || '-';
+      // Fungsi sanitasi sederhana untuk membersihkan karakter injeksi berlebih
+      const sanitizeInput = (str) => {
+        return (str || '')
+          .replace(/[<>`]/g, '') // Cegah tag injection
+          .trim();
+      };
+
+      // Ambil & sanitasi nilai data formulir
+      const fullName = sanitizeInput(document.getElementById('fullName')?.value) || '-';
+      const companyName = sanitizeInput(document.getElementById('companyName')?.value) || '-';
+      const workEmail = sanitizeInput(document.getElementById('workEmail')?.value) || '-';
+      const phoneNumber = sanitizeInput(document.getElementById('phoneNumber')?.value) || '-';
       const serviceCategorySelect = document.getElementById('serviceCategory');
-      const serviceCategoryText = serviceCategorySelect ? serviceCategorySelect.options[serviceCategorySelect.selectedIndex].text : '-';
-      const projectBrief = document.getElementById('projectBrief')?.value.trim() || '-';
+      const serviceCategoryText = serviceCategorySelect ? sanitizeInput(serviceCategorySelect.options[serviceCategorySelect.selectedIndex].text) : '-';
+      const projectBrief = sanitizeInput(document.getElementById('projectBrief')?.value) || '-';
 
       submitBtn.disabled = true;
       submitBtn.innerHTML = `
