@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Primary Meta Tags -->
+  <title>Dope IT Solution | Solusi Infrastruktur Jaringan, IT Managed Services & Cloud</title>
+  <meta name="title" content="Dope IT Solution | Solusi Infrastruktur Jaringan, IT Managed Services & Cloud">
+  <meta name="description" content="Dope IT Solution menghadirkan layanan rekayasa jaringan enterprise, pemantauan sistem 24/7, serta modernisasi cloud server. Solusi andal untuk akselerasi bisnis Anda.">
+  <meta name="keywords" content="arsitektur jaringan perusahaan, solusi jaringan kantor stabil, IT solution Indonesia, optimasi cloud server, IT Managed Services, cabling fiber optic, MikroTik, Cisco">
+  <meta name="author" content="Dope IT Solution">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dope-it-solution.pages.dev/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dope-it-solution.pages.dev/">
+  <meta property="og:title" content="Dope IT Solution - Membangun Fondasi Jaringan & Teknologi Informasi Andal">
+  <meta property="og:description" content="Layanan rekayasa jaringan enterprise, IT Managed Services 24/7, dan modernisasi cloud server dengan jaminan SLA 99.9% dan latensi ultra rendah.">
+  <meta property="og:image" content="https://dope-it-solution.pages.dev/og-cover.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://dope-it-solution.pages.dev/">
+  <meta property="twitter:title" content="Dope IT Solution - Solusi Infrastruktur TI Andal">
+  <meta property="twitter:description" content="Infrastruktur jaringan handal, SLA 99.9%, cloud orchestration, dan managed services untuk korporasi & UKM bertumbuh.">
+  <meta property="twitter:image" content="https://dope-it-solution.pages.dev/og-cover.png">
+
+  <!-- Fonts & Icons Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Dope IT Solutions",
+    "image": "https://dope-it-solution.pages.dev/assets/logo.jpg",
+    "description": "Penyedia solusi infrastruktur jaringan enterprise, IT Managed Services 24/7, cloud engineering, dan pengadaan hardware.",
+    "url": "https://dope-it-solution.pages.dev",
+    "telephone": "+6289605333747",
+    "email": "dopeitsolution@gmail.com",
+    "hasMap": "https://maps.app.goo.gl/uizwmRQ6RJDvfLwK7",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:30",
+      "closes": "17:30"
+    },
+    "priceRange": "$$$"
+  }
+  </script>
+
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+
+  <!-- Ambient Light Effects -->
+  <div class="network-grid-bg"></div>
+  <div class="hero-glow-sphere glow-cyan"></div>
+  <div class="hero-glow-sphere glow-blue"></div>
+
+  <!-- Main Navigation Bar -->
+  <header class="navbar" id="mainNavbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" aria-label="Beranda Dope IT Solution">
+        <img src="/assets/logo.jpg" alt="Dope IT Solutions Logo" class="brand-logo-img">
+        <div class="brand-text">Dope <span>IT Solutions</span></div>
+      </a>
+
+      <nav aria-label="Navigasi Utama">
+        <ul class="nav-links">
+          <li><a href="#beranda" class="nav-link active">Beranda</a></li>
+          <li><a href="#tentang" class="nav-link">Tentang Kami</a></li>
+          <li><a href="#layanan" class="nav-link">Layanan</a></li>
+          <li><a href="#portofolio" class="nav-link">Portofolio</a></li>
+          <li><a href="#artikel" class="nav-link">Artikel & Wawasan</a></li>
+          <li><a href="#kontak" class="nav-link">Kontak</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="badge-uptime">
+          <span class="pulse-dot"></span>
+          <span>SLA 99.9% Uptime</span>
+        </div>
+        <a href="#kontak" class="btn btn-primary btn-sm">Konsultasi Gratis</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu navigasi mobile">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <a href="#beranda">Beranda</a>
+    <a href="#tentang">Tentang Kami</a>
+    <a href="#layanan">Layanan Solusi</a>
+    <a href="#portofolio">Portofolio & Kasus</a>
+    <a href="#artikel">Artikel Edukasi</a>
+    <a href="#kontak" class="btn btn-primary" style="margin-top: 0.5rem; text-align: center; color: #fff;">Hubungi Konsultan TI</a>
+  </div>
+
+  <main>
+    <!-- Section 1: Hero Section -->
+    <section class="hero-section" id="beranda">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div>
+            <span class="badge-tech">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              Solusi Infrastruktur & Rekayasa Jaringan Terintegrasi
+            </span>
+          </div>
+
+          <h1 class="hero-headline">
+            Membangun Fondasi Jaringan & <span class="gradient-text">Teknologi Informasi Andal</span> untuk Akselerasi Bisnis Anda.
+          </h1>
+
+          <p class="hero-subheadline">
+            Dope IT Solution menghadirkan layanan rekayasa jaringan enterprise, pemantauan sistem 24/7, serta modernisasi cloud server. Solusi terukur agar operasional bisnis Anda tetap cepat, stabil, dan tanpa henti.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#kontak" class="btn btn-primary btn-lg" id="btnCtaConsult">
+              <span>Jadwalkan Konsultasi Gratis</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#layanan" class="btn btn-secondary btn-lg" id="btnCtaServices">Lihat Layanan Kami</a>
+          </div>
+
+          <div class="hero-trust-bar">
+            <div class="trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+              <span>Latency Rendah & QoS Stabil</span>
+            </div>
+            <div class="trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Jaminan SLA 99.9%</span>
+            </div>
+            <div class="trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 14 14"></polyline>
+              </svg>
+              <span>Sertifikasi MikroTik & Cisco</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 2: Tentang Kami (About Us) -->
+    <section class="why-us-section" id="tentang">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Tentang Kami & Keunggulan</span>
+          <h2 class="section-title">Mitra Rekayasa IT Terpercaya untuk Transformasi Masa Depan</h2>
+          <p class="section-desc">
+            Dope IT Solution hadir menjembatani kompleksitas infrastruktur jaringan dengan kebutuhan bisnis yang terus bergerak cepat. Kami memastikan operasional kantor, pabrik, dan data center Anda berjalan mulus tanpa distraksi teknis.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feature-icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h4>Standarisasi Enterprise</h4>
+            <p>Arsitektur dirancang mengikuti standar TIA-942 dan ISO 27001 untuk reliabilitas, keamanan, dan tata kelola kabel rapi.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h4>Response Time Cepat 24/7</h4>
+            <p>Tim dukungan bersiaga melakukan mitigasi proaktif dan troubleshooting cepat sebelum berdampak pada operasional Anda.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <h4>Efisiensi Biaya (TCO)</h4>
+            <p>Optimalisasi belanja modal perangkat keras dan software lisensi tanpa mengorbankan performa sistem.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h4>Garansi & Turnkey Solution</h4>
+            <p>Penyediaan solusi menyeluruh mulai dari perencanaan, pengadaan, implementasi hingga pelatihan personel internal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Katalog Layanan Inti (Core Services) -->
+    <section class="services-section" id="layanan">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Katalog Layanan Inti</span>
+          <h2 class="section-title">Solusi Rekayasa TI End-to-End untuk Skalabilitas Bisnis</h2>
+          <p class="section-desc">
+            Dirancang secara spesifik untuk memecahkan kendala konektivitas, stabilitas server, dan produktivitas tim kerja Anda.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Layanan 1 -->
+          <article class="service-card" id="serviceNetwork">
+            <div>
+              <div class="service-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="6" y1="3" x2="6" y2="15"></line>
+                  <circle cx="18" cy="6" r="3"></circle>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <path d="M18 9a9 9 0 0 1-9 9"></path>
+                </svg>
+              </div>
+              <h3>1. Network Infrastructure & Structured Cabling</h3>
+              <p>
+                Desain topologi LAN/WAN, instalasi fiber optic backbone, perapian rak server (cable management), konfigurasi routing & switching canggih, serta integrasi access point nirkabel skala padat (high-density Wi-Fi).
+              </p>
+              <ul class="service-features-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Perapian rak server berstandar rapi TIA-942
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Konfigurasi VLAN, Trunking & BGP/OSPF Routing
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Wireless Site Survey & Seamless Roaming AP
+                </li>
+              </ul>
+            </div>
+            <div class="service-value-add">
+              <strong>Nilai Tambah:</strong> Meminimalkan packet loss, menjamin throughput tinggi, dan tata kelola kabel rapi berstandar industri.
+            </div>
+          </article>
+
+          <!-- Layanan 2 -->
+          <article class="service-card" id="serviceManaged">
+            <div>
+              <div class="service-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h3>2. IT Managed Services & 24/7 System Monitoring</h3>
+              <p>
+                Pengelolaan proaktif seluruh ekosistem perangkat keras dan lunak perusahaan tanpa perlu membebani tim internal. Monitoring berkala metrik server, bandwidth gateway, dan availability sistem.
+              </p>
+              <ul class="service-features-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Network Operations Center (NOC) bersiaga 24/7
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Helpdesk responsif & onsite emergency support
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Audit kerentanan keamanan berkala & patch management
+                </li>
+              </ul>
+            </div>
+            <div class="service-value-add">
+              <strong>Nilai Tambah:</strong> Deteksi insiden sebelum terjadi gangguan layanan, pemeliharaan berkala, serta helpdesk responsif.
+            </div>
+          </article>
+
+          <!-- Layanan 3 -->
+          <article class="service-card" id="serviceCloud">
+            <div>
+              <div class="service-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                </svg>
+              </div>
+              <h3>3. Cloud Migration & Server Modernization</h3>
+              <p>
+                Konfigurasi VPS, orkestrasi server lokal (on-premise) ke hybrid cloud, optimasi CDN Cloudflare & Edge Workers, serta automated disaster recovery snapshot backup untuk mencegah data loss.
+              </p>
+              <ul class="service-features-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Migrasi Zero Downtime database & aplikasi kantor
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Cloudflare WAF, SSL/TLS, DDoS Protection setup
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Offsite automated cloud backup & replication
+                </li>
+              </ul>
+            </div>
+            <div class="service-value-add">
+              <strong>Nilai Tambah:</strong> Menghemat biaya modal operasional dan meningkatkan skalabilitas beban kerja aplikasi bisnis.
+            </div>
+          </article>
+
+          <!-- Layanan 4 -->
+          <article class="service-card" id="serviceHardware">
+            <div>
+              <div class="service-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </div>
+              <h3>4. Hardware Procurement & Device Lifecycle</h3>
+              <p>
+                Pengadaan workstation karyawan, switch manageable, router enterprise, server rackmount, serta layanan peremajaan berkala dengan garansi resmi produsen terkemuka.
+              </p>
+              <ul class="service-features-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Penyediaan unit Cisco, MikroTik, Ubiquiti, Synology, Dell
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Instalasi siap pakai (pre-configured turnkey deployment)
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Jaminan garansi distributor resmi & RMA assistance
+                </li>
+              </ul>
+            </div>
+            <div class="service-value-add">
+              <strong>Nilai Tambah:</strong> Garansi resmi terjamin, instalasi siap pakai (turnkey solution), dan efisiensi anggaran belanja IT.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Studi Kasus & Portofolio (Case Studies) -->
+    <section class="case-studies-section" id="portofolio">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Studi Kasus & Portofolio</span>
+          <h2 class="section-title">Hasil Implementasi Nyata di Berbagai Industri</h2>
+          <p class="section-desc">
+            Lihat bagaimana solusi arsitektur jaringan dan infrastruktur kami membantu klien mengatasi kendala latency, downtime, dan efisiensi operasional.
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="case-card">
+            <div class="case-card-img-placeholder">
+              <span class="case-tag">Fintech Corporation</span>
+              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="8" rx="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </div>
+            <div class="case-body">
+              <div>
+                <h3 class="case-title">Redesain Topologi & Perapian Data Center 4 Lantai</h3>
+                <p class="case-desc">Implementasi fiber optic backbone 10G dan segregasi 12 VLAN departemen untuk menjamin privasi data keuangan dan kestabilan transaksi.</p>
+              </div>
+              <div class="case-metrics">
+                <div class="metric-item">
+                  <span class="metric-num">99.99%</span>
+                  <span class="metric-text">Uptime Terjaga</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-num">-70%</span>
+                  <span class="metric-text">Latency Drop</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-card-img-placeholder">
+              <span class="case-tag">E-Commerce & Logistik</span>
+              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+              </svg>
+            </div>
+            <div class="case-body">
+              <div>
+                <h3 class="case-title">Migrasi Hybrid Cloud & Optimasi Caching Edge</h3>
+                <p class="case-desc">Orkestrasi database ke Cloudflare Workers edge caching, meredam lonjakan traffic saat event promo bulanan tanpa server crash.</p>
+              </div>
+              <div class="case-metrics">
+                <div class="metric-item">
+                  <span class="metric-num">4.5x</span>
+                  <span class="metric-text">Speed Akses</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-num">Zero</span>
+                  <span class="metric-text">Downtime Peak</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-card-img-placeholder">
+              <span class="case-tag">Institusi Pendidikan</span>
+              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                <line x1="12" y1="20" x2="12.01" y2="20"></line>
+              </svg>
+            </div>
+            <div class="case-body">
+              <div>
+                <h3 class="case-title">Instalasi High-Density Wi-Fi Kampus 2.500 User</h3>
+                <p class="case-desc">Pemasangan 38 Access Point enterprise dengan load balancing dan captive portal terpusat untuk ujian online terpadu.</p>
+              </div>
+              <div class="case-metrics">
+                <div class="metric-item">
+                  <span class="metric-num">2.5k+</span>
+                  <span class="metric-text">Concurrent User</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-num">100%</span>
+                  <span class="metric-text">Coverage Area</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Artikel & Edukasi TI -->
+    <section class="blog-section" id="artikel">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Wawasan & Edukasi TI</span>
+          <h2 class="section-title">Artikel & Panduan Teknis Terkini</h2>
+          <p class="section-desc">
+            Pelajari strategi optimalisasi infrastruktur jaringan dan komputasi awan yang dapat langsung diaplikasikan di instansi Anda.
+          </p>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Artikel 1 -->
+          <article class="blog-card open-article-trigger" data-article="arsitektur-jaringan" id="article1Card">
+            <div class="blog-meta">
+              <span class="blog-keyword-pill">Infrastruktur Jaringan</span>
+              <span>• 6 Menit Baca</span>
+              <span>• Oleh Tim Engineer</span>
+            </div>
+            <h3>Strategi Merancang Arsitektur Jaringan Kantor yang Cepat, Stabil, dan Skalabel</h3>
+            <p>
+              Menghadapi tingginya kebutuhan video conference, perangkat IoT, dan sistem cloud, simak prinsip penting dalam membagi subnet, pemilihan switch layer 3, dan konfigurasi QoS.
+            </p>
+            <ul class="blog-points">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Tantangan konektivitas era transformasi digital
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Segmentasi traffic dengan VLAN & firewall rules
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Standardisasi perangkat manageable vs kelas rumahan
+              </li>
+            </ul>
+            <span class="read-more-link">
+              Baca Artikel Lengkap
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </article>
+
+          <!-- Artikel 2 -->
+          <article class="blog-card open-article-trigger" data-article="efisiensi-cloud" id="article2Card">
+            <div class="blog-meta">
+              <span class="blog-keyword-pill">Cloud & CDN Modern</span>
+              <span>• 5 Menit Baca</span>
+              <span>• Oleh Cloud Architect</span>
+            </div>
+            <h3>Mengoptimalkan Performa & Kecepatan Akses Sistem Kantor dengan Infrastruktur Cloud Modern</h3>
+            <p>
+              Pelajari bagaimana pemanfaatan CDN Cloudflare, automated backup snapshot, dan edge computing memangkas latency kantor sekaligus menjaga data terproteksi saat terjadi bencana sistem.
+            </p>
+            <ul class="blog-points">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Kelemahan server konvensional single point of failure
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Akselerasi via CDN & Edge Computing terdistribusi
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Prosedur Disaster Recovery (RPO & RTO) dalam hitungan menit
+              </li>
+            </ul>
+            <span class="read-more-link">
+              Baca Artikel Lengkap
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Hubungi Kami (Contact & Consultation) -->
+    <section class="contact-section" id="kontak">
+      <div class="container contact-grid">
+        <div class="contact-info-panel">
+          <div>
+            <span class="section-tag">Konsultasi Gratis</span>
+            <h2 class="contact-title">Mari Bahas Kebutuhan Infrastruktur TI Anda</h2>
+          </div>
+          <p>
+            Ingin melakukan perapian rak server, instalasi jaringan baru, migrasi server, atau membutuhkan tim pemantauan 24/7? Hubungi tim engineer kami untuk survei lokasi dan estimasi anggaran.
+          </p>
+
+          <div class="contact-cards-list">
+            <a href="https://wa.me/6289605333747" target="_blank" rel="noopener noreferrer" class="contact-item-card" title="Chat via WhatsApp">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-item-title">WhatsApp & Telepon</div>
+                <div class="contact-item-val">089605333747</div>
+              </div>
+            </a>
+
+            <a href="mailto:dopeitsolution@gmail.com" class="contact-item-card" title="Kirim Email">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-item-title">Email Resmi</div>
+                <div class="contact-item-val">dopeitsolution@gmail.com</div>
+              </div>
+            </a>
+
+            <a href="https://maps.app.goo.gl/uizwmRQ6RJDvfLwK7" target="_blank" rel="noopener noreferrer" class="contact-item-card" title="Buka Google Maps">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-item-title">Lokasi Kantor & Workshop</div>
+                <div class="contact-item-val">Buka di Google Maps ↗</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Consultation Form -->
+        <div class="contact-form-card">
+          <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: #0F172A;">Formulir Permintaan Konsultasi</h3>
+          <p style="font-size: 0.875rem; margin-bottom: 1.5rem;">Isi formulir berikut, tim teknis kami akan menghubungi dalam 1x24 jam kerja.</p>
+
+          <form id="consultationForm">
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="fullName">Nama Lengkap *</label>
+                <input type="text" id="fullName" class="form-input" placeholder="Contoh: Budi Santoso" required>
+              </div>
+              <div class="form-group">
+                <label for="companyName">Nama Perusahaan / Instansi *</label>
+                <input type="text" id="companyName" class="form-input" placeholder="PT Sukses Bersama" required>
+              </div>
+            </div>
+
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="workEmail">Email Bisnis *</label>
+                <input type="email" id="workEmail" class="form-input" placeholder="budi@perusahaan.com" required>
+              </div>
+              <div class="form-group">
+                <label for="phoneNumber">Nomor Telepon / WA *</label>
+                <input type="tel" id="phoneNumber" class="form-input" placeholder="0812xxxxxxxx" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="serviceCategory">Kebutuhan Solusi *</label>
+              <select id="serviceCategory" class="form-select" required>
+                <option value="">Pilih Kategori Layanan...</option>
+                <option value="network">Network Infrastructure & Cabling (LAN/WAN/Fiber)</option>
+                <option value="managed">IT Managed Services & 24/7 Monitoring</option>
+                <option value="cloud">Cloud Migration & Server Modernization</option>
+                <option value="hardware">Hardware Procurement & Maintenance</option>
+                <option value="audit">Audit Menyeluruh / Lainnya</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="projectBrief">Ringkasan Kendala / Rencana Proyek *</label>
+              <textarea id="projectBrief" class="form-textarea" placeholder="Jelaskan kendala jaringan saat ini, jumlah titik akses, atau spesifikasi server yang dibutuhkan..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+              <span>Kirim Permintaan Konsultasi</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+
+            <div class="form-alert" id="formSuccessAlert">
+              <strong>Permintaan Terkirim!</strong> Terima kasih, konsultan IT kami akan segera menghubungi Anda dengan telaah awal solusi.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal View for SEO Articles -->
+  <div class="modal-backdrop" id="articleModal" role="dialog" aria-modal="true" aria-labelledby="modalArticleTitle">
+    <div class="modal-content-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup jendela artikel">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div style="margin-bottom: 1rem;">
+        <span class="badge-tech" id="modalArticleTag">Artikel Edukasi</span>
+        <span style="font-size: 0.85rem; color: #64748B; margin-left: 0.75rem;" id="modalArticleReadTime"></span>
+      </div>
+      <h2 id="modalArticleTitle" style="font-size: 1.85rem; color: #0F172A; line-height: 1.3; margin-bottom: 1.5rem;">Judul Artikel</h2>
+      <div id="modalArticleBody" style="border-top: 1px solid #E2E8F0; padding-top: 1.5rem;">
+        <!-- Konten injected by JS -->
+      </div>
+      <div style="margin-top: 2rem; border-top: 1px solid #E2E8F0; padding-top: 1.5rem; display: flex; justify-content: flex-end;">
+        <a href="#kontak" class="btn btn-primary" onclick="document.getElementById('articleModal').classList.remove('open'); document.body.style.overflow='';">Konsultasikan Solusi Ini</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo" style="margin-bottom: 1rem; color: #FFFFFF;">
+            <img src="/assets/logo.jpg" alt="Dope IT Solutions Logo" class="brand-logo-img">
+            <span>Dope IT Solutions</span>
+          </div>
+          <p>
+            Membangun arsitektur jaringan yang kokoh, layanan IT Managed Services tangguh, dan modernisasi komputasi cloud untuk menjamin kelancaran masa depan bisnis Anda.
+          </p>
+          <div class="badge-uptime">
+            <span class="pulse-dot"></span>
+            <span>Enterprise Network SLA 99.9%</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Layanan Solusi</h4>
+          <ul class="footer-links">
+            <li><a href="#layanan">Network Cabling & Fiber</a></li>
+            <li><a href="#layanan">IT Managed Services 24/7</a></li>
+            <li><a href="#layanan">Cloud & Edge Optimization</a></li>
+            <li><a href="#layanan">Hardware Procurement</a></li>
+            <li><a href="#layanan">VLAN & Network Audit</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Perusahaan</h4>
+          <ul class="footer-links">
+            <li><a href="#tentang">Tentang Dope IT</a></li>
+            <li><a href="#portofolio">Portofolio Proyek</a></li>
+            <li><a href="#artikel">Artikel Edukasi</a></li>
+            <li><a href="#kontak">Hubungi Tim</a></li>
+            <li><a href="#">Sertifikasi Teknis</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontak & Kantor</h4>
+          <ul class="footer-links">
+            <li><a href="https://maps.app.goo.gl/uizwmRQ6RJDvfLwK7" target="_blank" rel="noopener noreferrer">📍 Lokasi Google Maps</a></li>
+            <li><a href="mailto:dopeitsolution@gmail.com">✉ dopeitsolution@gmail.com</a></li>
+            <li><a href="https://wa.me/6289605333747" target="_blank" rel="noopener noreferrer">💬 WA: 089605333747</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Dope IT Solution. Seluruh Hak Cipta Dilindungi Undang-Undang.
+        </div>
+        <div>
+          Arsitektur Ramah Cloudflare Pages • Kecepatan & Keamanan Terenkripsi
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

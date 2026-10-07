@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dope-it-solution.pages.dev/sitemap.xml
