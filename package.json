@@ -2,6 +2,7 @@
   "name": "dope-it-solution",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Website Resmi Dope IT Solution - Solusi Infrastruktur Jaringan, IT Managed Services, & Cloud Engineering",
   "scripts": {
     "dev": "vite",
