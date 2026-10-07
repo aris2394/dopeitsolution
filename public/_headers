@@ -1,6 +1,4 @@
-/*
-  Cloudflare Security & Performance Headers
-*/
+# Cloudflare Security & Performance Headers
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
