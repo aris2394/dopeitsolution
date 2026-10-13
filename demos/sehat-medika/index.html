@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klinik Sehat Medika | Profil Klinik & Reservasi Jadwal Dokter</title>
+  <meta name="description" content="Platform website klinik kesehatan modern dengan sistem RBAC Laravel & Filament PHP untuk penjadwalan dokter dan privasi data pasien.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-hover: #047857;
+      --bg: #064E3B;
+      --bg-dark: #022C22;
+      --card-bg: #065F46;
+      --text: #ECFDF5;
+      --text-muted: #A7F3D0;
+      --accent: #34D399;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #022C22;
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+    .demo-bar {
+      background: #011C16;
+      border-bottom: 1px solid rgba(52, 211, 153, 0.2);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .demo-badge {
+      background: rgba(52, 211, 153, 0.2);
+      color: var(--accent);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .btn-action {
+      background: #10B981;
+      color: #022C22;
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.82rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-action:hover { background: #34D399; }
+
+    /* Hero */
+    .hero {
+      padding: 5rem 1.5rem 3.5rem;
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+      border-bottom: 1px solid rgba(52, 211, 153, 0.2);
+    }
+    .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem; }
+    .hero p { max-width: 650px; margin: 0 auto 2rem; color: var(--text-muted); font-size: 1.05rem; }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 3rem 1.5rem; }
+    .section-title { text-align: center; margin-bottom: 2.5rem; }
+    .section-title h2 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .section-title p { color: var(--text-muted); }
+
+    /* Doctor Schedule Grid */
+    .doctor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .doctor-card {
+      background: rgba(6, 95, 70, 0.5);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s;
+    }
+    .doctor-card:hover { transform: translateY(-4px); }
+    .doc-avatar {
+      width: 54px;
+      height: 54px;
+      background: rgba(52, 211, 153, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .doc-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .doc-spec { color: var(--accent); font-size: 0.88rem; font-weight: 600; margin-bottom: 0.8rem; }
+    .doc-schedule {
+      background: rgba(2, 44, 34, 0.6);
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.82rem;
+      color: #D1FAE5;
+      margin-bottom: 1rem;
+    }
+
+    /* Booking Form Box */
+    .booking-box {
+      margin-top: 4rem;
+      background: rgba(6, 95, 70, 0.4);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+    .booking-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .form-input {
+      background: #022C22;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      color: #FFF;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    /* CMS Drawer */
+    .cms-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 400px;
+      max-width: 90vw;
+      height: 100vh;
+      background: #022C22;
+      border-left: 1px solid rgba(52, 211, 153, 0.3);
+      box-shadow: -10px 0 30px rgba(0,0,0,0.7);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cms-drawer.open { right: 0; }
+    .cms-header {
+      padding: 1.25rem;
+      background: #064E3B;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(52, 211, 153, 0.3);
+    }
+    .cms-body { padding: 1.5rem; overflow-y: auto; flex: 1; }
+    .cms-field { margin-bottom: 1rem; }
+    .cms-field label { display: block; font-size: 0.82rem; font-weight: 600; color: #D1FAE5; margin-bottom: 0.35rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Bar -->
+  <div class="demo-bar">
+    <div style="display:flex; align-items:center; gap: 0.75rem;">
+      <a href="/#portofolio" style="color:#A7F3D0; text-decoration:none; display:flex; align-items:center; gap:4px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        Kembali ke Dope IT Solution
+      </a>
+      <span class="demo-badge">Healthcare Portfolio • Laravel Filament (RBAC)</span>
+    </div>
+    <button class="btn-action" id="openCmsBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+      Panel Filament Admin (Kelola Jadwal)
+    </button>
+  </div>
+
+  <header class="hero">
+    <div style="background:rgba(52, 211, 153, 0.2); border:1px solid rgba(52, 211, 153, 0.4); display:inline-block; padding:0.3rem 0.9rem; border-radius:20px; font-size:0.85rem; font-weight:600; margin-bottom:1rem;">
+      Layanan Medis Terpadu & Terpercaya
+    </div>
+    <h1>Klinik Utama Sehat Medika</h1>
+    <p>Pelayanan medis prima dengan dokter spesialis berpengalaman, fasilitas laboratorium higienis, dan sistem antrean daring terintegrasi.</p>
+  </header>
+
+  <main class="container">
+    <div class="section-title">
+      <h2>Jadwal Praktik Dokter</h2>
+      <p>Pilih dokter spesialis sesuai kebutuhan konsultasi dan kesehatan Anda.</p>
+    </div>
+
+    <div class="doctor-grid" id="doctorGrid">
+      <!-- Injected by JS -->
+    </div>
+
+    <div class="booking-box">
+      <h3 style="font-size:1.4rem; margin-bottom:0.4rem;">Pendaftaran Antrean Konsultasi Online</h3>
+      <p style="color:var(--text-muted); font-size:0.9rem;">Dapatkan nomor antrean otomatis tanpa perlu menunggu lama di ruang tunggu klinik.</p>
+      <form class="booking-form" id="bookForm">
+        <input type="text" class="form-input" placeholder="Nama Lengkap Pasien" required id="pName">
+        <input type="tel" class="form-input" placeholder="No. WhatsApp Pasien" required id="pPhone">
+        <select class="form-input" id="pDoctor">
+          <option value="dr. Amanda Sp.A">dr. Amanda Sp.A (Spesialis Anak)</option>
+          <option value="dr. Hendra Sp.PD">dr. Hendra Sp.PD (Penyakit Dalam)</option>
+          <option value="drg. Sarah Sp.KG">drg. Sarah Sp.KG (Konservasi Gigi)</option>
+        </select>
+        <button type="submit" class="btn-action" style="padding:0.75rem; justify-content:center; font-size:0.95rem;">Ambil Nomor Antrean</button>
+      </form>
+      <div id="bookResult" style="display:none; margin-top:1rem; padding:0.8rem; background:rgba(52,211,153,0.2); border-radius:8px; font-size:0.9rem; color:#A7F3D0;"></div>
+    </div>
+  </main>
+
+  <!-- CMS Drawer -->
+  <div class="cms-drawer" id="cmsDrawer">
+    <div class="cms-header">
+      <div>
+        <h3 style="color:#FFF; font-size:1.05rem;">Filament PHP Dashboard (Demo)</h3>
+        <span style="font-size:0.75rem; color:#A7F3D0;">Modul: DoctorScheduleResource</span>
+      </div>
+      <button id="closeCmsBtn" style="background:none; border:none; color:#FFF; font-size:1.4rem; cursor:pointer;">&times;</button>
+    </div>
+    <div class="cms-body">
+      <div style="background:rgba(16, 185, 129, 0.2); border:1px solid rgba(52, 211, 153, 0.3); padding:0.75rem; border-radius:8px; font-size:0.82rem; color:#D1FAE5; margin-bottom:1.2rem;">
+        🔒 <strong>Privasi & RBAC:</strong> Dokter dan staf resepsionis hanya memiliki izin ubah jadwal tanpa mengekspos rekam medis pasien umum.
+      </div>
+
+      <form id="addDoctorForm">
+        <div class="cms-field">
+          <label>Nama Lengkap Dokter & Gelar</label>
+          <input type="text" id="docName" class="form-input" style="width:100%;" placeholder="dr. Farhan Sp.B" required>
+        </div>
+        <div class="cms-field">
+          <label>Spesialisasi / Poli</label>
+          <input type="text" id="docSpec" class="form-input" style="width:100%;" placeholder="Spesialis Bedah Umum" required>
+        </div>
+        <div class="cms-field">
+          <label>Jadwal Praktik</label>
+          <input type="text" id="docTime" class="form-input" style="width:100%;" placeholder="Senin & Rabu: 16:00 - 20:00" required>
+        </div>
+        <div class="cms-field">
+          <label>Kuota Pasien per Sesi</label>
+          <input type="number" id="docQuota" class="form-input" style="width:100%;" value="15" required>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; justify-content:center; padding:0.75rem; margin-top:0.5rem;">
+          Update Jadwal Dokter
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let doctors = [
+      {
+        id: 1,
+        name: "dr. Amanda Prasetya, Sp.A",
+        spec: "Spesialis Anak & Tumbuh Kembang",
+        time: "Senin - Kamis: 09:00 - 13:00",
+        quota: "Maks 20 Pasien/Hari",
+        avatar: "🩺"
+      },
+      {
+        id: 2,
+        name: "dr. Hendra Wicaksono, Sp.PD",
+        spec: "Spesialis Penyakit Dalam",
+        time: "Selasa & Jumat: 14:00 - 18:00",
+        quota: "Maks 15 Pasien/Hari",
+        avatar: "👨‍⚕️"
+      },
+      {
+        id: 3,
+        name: "drg. Sarah Stephanie, Sp.KG",
+        spec: "Spesialis Konservasi Gigi & Estetika",
+        time: "Rabu - Sabtu: 10:00 - 16:00",
+        quota: "Maks 12 Pasien/Hari",
+        avatar: "🦷"
+      }
+    ];
+
+    function renderDoctors() {
+      const grid = document.getElementById('doctorGrid');
+      grid.innerHTML = doctors.map(d => `
+        <div class="doctor-card">
+          <div>
+            <div class="doc-avatar">${d.avatar}</div>
+            <h3 class="doc-name">${d.name}</h3>
+            <div class="doc-spec">${d.spec}</div>
+            <div class="doc-schedule">🕒 ${d.time}</div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.8rem; color:#A7F3D0; border-top:1px dashed rgba(52,211,153,0.3); padding-top:0.75rem;">
+            <span>Kuota: ${d.quota}</span>
+            <span style="color:#34D399; font-weight:700;">Aktif</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    const cmsDrawer = document.getElementById('cmsDrawer');
+    document.getElementById('openCmsBtn').addEventListener('click', () => cmsDrawer.classList.add('open'));
+    document.getElementById('closeCmsBtn').addEventListener('click', () => cmsDrawer.classList.remove('open'));
+
+    document.getElementById('addDoctorForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('docName').value;
+      const spec = document.getElementById('docSpec').value;
+      const time = document.getElementById('docTime').value;
+      const quota = document.getElementById('docQuota').value;
+
+      doctors.push({
+        id: Date.now(),
+        name,
+        spec,
+        time,
+        quota: `Maks ${quota} Pasien/Hari`,
+        avatar: "🩺"
+      });
+
+      renderDoctors();
+      cmsDrawer.classList.remove('open');
+      document.getElementById('addDoctorForm').reset();
+      alert(`Jadwal dokter ${name} berhasil didaftarkan di portal Filament!`);
+    });
+
+    document.getElementById('bookForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('pName').value;
+      const doc = document.getElementById('pDoctor').value;
+      const res = document.getElementById('bookResult');
+      res.textContent = `Nomor Antrean Berhasil Diterbitkan! [KODE: SM-${Math.floor(100 + Math.random() * 900)}] untuk Pasien "${name}" bersama ${doc}. Konfirmasi SMS/WA terkirim.`;
+      res.style.display = 'block';
+      document.getElementById('bookForm').reset();
+    });
+
+    renderDoctors();
+  </script>
+</body>
+</html>

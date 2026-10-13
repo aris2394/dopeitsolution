@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Cart Apparel | Toko Online & Katalog Retail MSME</title>
+  <meta name="description" content="Showcase toko online retail & fashion UMKM dengan Sanity.io CMS headless, checkout kilat WhatsApp, dan inventory sync.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #EF4444;
+      --primary-hover: #DC2626;
+      --bg: #09090B;
+      --card-bg: #18181B;
+      --border: #27272A;
+      --text: #FAFAFA;
+      --text-muted: #A1A1AA;
+      --accent: #F43F5E;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+    h1, h2, h3, .brand { font-family: 'Space Grotesk', sans-serif; }
+    .demo-bar {
+      background: #000;
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .demo-badge {
+      background: rgba(239, 68, 68, 0.2);
+      color: #F87171;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .btn-action {
+      background: var(--primary);
+      color: #FFF;
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.82rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-action:hover { background: var(--primary-hover); }
+
+    /* Store Header */
+    .store-nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .brand span { color: var(--primary); }
+
+    .hero-banner {
+      padding: 4rem 1.5rem;
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(239, 68, 68, 0.12) 0%, transparent 60%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-banner h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
+    .hero-banner p { max-width: 600px; margin: 0 auto 1.5rem; color: var(--text-muted); }
+
+    /* Product Grid */
+    .container { max-width: 1140px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+    .grid-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: gap;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+    .product-img {
+      height: 220px;
+      background: #27272A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+    }
+    .product-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .product-body {
+      padding: 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .product-desc { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.4; }
+    .product-price { font-size: 1.15rem; font-weight: 800; color: #FFF; }
+    .product-stock { font-size: 0.75rem; color: #34D399; margin-top: 0.2rem; }
+    .btn-buy {
+      margin-top: 1rem;
+      width: 100%;
+      background: #27272A;
+      color: #FFF;
+      border: 1px solid #3F3F46;
+      padding: 0.6rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+    }
+    .btn-buy:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Cart Floating / Summary */
+    .cart-bar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #18181B;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      border-radius: 40px;
+      padding: 0.75rem 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      z-index: 90;
+    }
+
+    /* CMS Drawer */
+    .cms-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 400px;
+      max-width: 90vw;
+      height: 100vh;
+      background: #121214;
+      border-left: 1px solid var(--border);
+      box-shadow: -10px 0 30px rgba(0,0,0,0.7);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cms-drawer.open { right: 0; }
+    .cms-header {
+      padding: 1.25rem;
+      background: #18181B;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .cms-body { padding: 1.5rem; overflow-y: auto; flex: 1; }
+    .cms-field { margin-bottom: 1.1rem; }
+    .cms-field label { display: block; font-size: 0.82rem; font-weight: 600; color: #A1A1AA; margin-bottom: 0.35rem; }
+    .cms-input, .cms-textarea {
+      width: 100%;
+      background: #09090B;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: #FFF;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Bar -->
+  <div class="demo-bar">
+    <div style="display:flex; align-items:center; gap: 0.75rem;">
+      <a href="/#portofolio" style="color:#A1A1AA; text-decoration:none; display:flex; align-items:center; gap:4px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        Kembali ke Dope IT Solution
+      </a>
+      <span class="demo-badge">Retail & E-Commerce • Sanity.io Headless</span>
+    </div>
+    <button class="btn-action" id="openCmsBtn" style="background:#27272A; border:1px solid #3F3F46;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+      Panel Sanity CMS (Tambah Produk)
+    </button>
+  </div>
+
+  <!-- Store Nav -->
+  <nav class="store-nav">
+    <div class="brand">URBAN<span>CART</span>.</div>
+    <div style="font-size: 0.9rem; color: var(--text-muted);">Collection 2026 / MSME Ready</div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <h1>Contemporary Streetwear & Daily Essentials</h1>
+    <p>Platform e-commerce katalog instan untuk brand lokal UMKM. Checkout langsung terhubung ke WhatsApp penjual tanpa potongan fee marketplace yang mahal.</p>
+  </section>
+
+  <!-- Container -->
+  <main class="container">
+    <div class="grid-header">
+      <div>
+        <h2 style="font-size: 1.5rem;">Katalog Produk Terbaru</h2>
+        <p style="font-size:0.85rem; color:var(--text-muted);">Perubahan stok dan harga dari dashboard Sanity langsung teraplikasikan ke pengunjung.</p>
+      </div>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Products loaded here -->
+    </div>
+  </main>
+
+  <!-- Floating Cart -->
+  <div class="cart-bar" id="cartBar">
+    <div style="display:flex; align-items:center; gap:0.5rem;">
+      <span style="font-size:1.2rem;">🛒</span>
+      <span style="font-weight:600; font-size:0.9rem;" id="cartCount">0 item dipilih</span>
+    </div>
+    <button class="btn-action" id="btnCheckoutWA" style="border-radius:20px;">
+      Checkout via WhatsApp
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+  </div>
+
+  <!-- Sanity CMS Drawer -->
+  <div class="cms-drawer" id="cmsDrawer">
+    <div class="cms-header">
+      <div>
+        <h3 style="color:#FFF; font-size:1.05rem;">Sanity Studio Simulator</h3>
+        <span style="font-size:0.75rem; color:#A1A1AA;">Struktur Dokumen: product</span>
+      </div>
+      <button id="closeCmsBtn" style="background:none; border:none; color:#FFF; font-size:1.4rem; cursor:pointer;">&times;</button>
+    </div>
+    <div class="cms-body">
+      <div style="background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239, 68, 68, 0.3); padding:0.75rem; border-radius:8px; font-size:0.82rem; color:#FCA5A5; margin-bottom:1.2rem;">
+        ⚡ <strong>Kemudahan UMKM:</strong> Tambah varian pakaian, warna, stok gudang, dan promo diskon dalam satu form ringkas.
+      </div>
+
+      <form id="addProductForm">
+        <div class="cms-field">
+          <label>Nama Produk</label>
+          <input type="text" id="prodTitle" class="cms-input" placeholder="Heavyweight Oversized Tee - Black" required>
+        </div>
+        <div class="cms-field">
+          <label>Harga (IDR)</label>
+          <input type="number" id="prodPrice" class="cms-input" placeholder="185000" required>
+        </div>
+        <div class="cms-field">
+          <label>Emoji Ikon / Icon Produk</label>
+          <input type="text" id="prodIcon" class="cms-input" value="👕" required>
+        </div>
+        <div class="cms-field">
+          <label>Badge Label</label>
+          <input type="text" id="prodBadge" class="cms-input" placeholder="NEW ARRIVAL" value="NEW ARRIVAL">
+        </div>
+        <div class="cms-field">
+          <label>Deskripsi Singkat</label>
+          <textarea id="prodDesc" class="cms-textarea" rows="2" placeholder="Bahan 100% cotton combed 24s gramasi tebal..." required></textarea>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; justify-content:center; padding:0.75rem; margin-top:0.5rem;">
+          Simpan Produk ke Toko
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let products = [
+      {
+        id: 1,
+        title: "Heavyweight Boxy Tee - Jet Black",
+        price: 185000,
+        desc: "Bahan cotton combed 16s 230 GSM dengan jahitan kerah ganda rib anti melar.",
+        icon: "👕",
+        badge: "BESTSELLER",
+        stock: "Tersedia 45 pcs"
+      },
+      {
+        id: 2,
+        title: "Tactical Utility Cargo Pants",
+        price: 320000,
+        desc: "Celana panjang bahan ripstop katun waterproof ringan dengan 6 kantong fungsional.",
+        icon: "👖",
+        badge: "HOT ITEM",
+        stock: "Tersedia 18 pcs"
+      },
+      {
+        id: 3,
+        title: "Corduroy Worker Overshirt",
+        price: 295000,
+        desc: "Kemeja luaran material korduroi premium lembut cocok untuk outfit kasual harian.",
+        icon: "🧥",
+        badge: "LIMITED",
+        stock: "Tersedia 12 pcs"
+      },
+      {
+        id: 4,
+        title: "Daily Canvas Tote Bag 20L",
+        price: 110000,
+        desc: "Tas kanvas tebal dengan kompartemen laptop 14 inci dan penutup risleting YKK.",
+        icon: "👜",
+        badge: "READY",
+        stock: "Tersedia 60 pcs"
+      }
+    ];
+
+    let cart = [];
+
+    function formatRupiah(num) {
+      return 'Rp ' + Number(num).toLocaleString('id-ID');
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = products.map(p => `
+        <article class="product-card">
+          <div class="product-img">
+            ${p.icon}
+            <span class="product-tag">${p.badge}</span>
+          </div>
+          <div class="product-body">
+            <div>
+              <h3 class="product-title">${p.title}</h3>
+              <p class="product-desc">${p.desc}</p>
+              <div class="product-price">${formatRupiah(p.price)}</div>
+              <div class="product-stock">● ${p.stock}</div>
+            </div>
+            <button class="btn-buy" onclick="addToCart(${p.id})">
+              + Masukkan Keranjang
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    window.addToCart = function(id) {
+      const item = products.find(p => p.id === id);
+      if (item) {
+        cart.push(item);
+        updateCart();
+      }
+    };
+
+    function updateCart() {
+      const countEl = document.getElementById('cartCount');
+      countEl.textContent = `${cart.length} item dipilih`;
+    }
+
+    document.getElementById('btnCheckoutWA').addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert('Keranjang masih kosong. Silakan pilih produk terlebih dahulu.');
+        return;
+      }
+      const itemNames = cart.map(i => i.title).join(', ');
+      const total = cart.reduce((acc, curr) => acc + curr.price, 0);
+      const text = `Halo Urban Cart, saya ingin memesan produk:\n- ${itemNames}\nTotal Belanja: ${formatRupiah(total)}\nMohon info ketersediaan ukuran & ongkir.`;
+      window.open(`https://wa.me/6289605333747?text=${encodeURIComponent(text)}`, '_blank');
+    });
+
+    const cmsDrawer = document.getElementById('cmsDrawer');
+    document.getElementById('openCmsBtn').addEventListener('click', () => cmsDrawer.classList.add('open'));
+    document.getElementById('closeCmsBtn').addEventListener('click', () => cmsDrawer.classList.remove('open'));
+
+    document.getElementById('addProductForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = document.getElementById('prodTitle').value;
+      const price = Number(document.getElementById('prodPrice').value);
+      const icon = document.getElementById('prodIcon').value || '🛍️';
+      const badge = document.getElementById('prodBadge').value || 'NEW';
+      const desc = document.getElementById('prodDesc').value;
+
+      products.unshift({
+        id: Date.now(),
+        title,
+        price,
+        icon,
+        badge,
+        desc,
+        stock: "Tersedia 30 pcs"
+      });
+
+      renderProducts();
+      cmsDrawer.classList.remove('open');
+      document.getElementById('addProductForm').reset();
+      alert(`Produk "${title}" berhasil ditambahkan ke katalog Sanity.io!`);
+    });
+
+    renderProducts();
+  </script>
+</body>
+</html>
