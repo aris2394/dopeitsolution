@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/demos-shared.css">
   <style>
     :root {
       --primary: #0284C7;
@@ -893,7 +894,7 @@
       saveBulletins(bulletins);
       renderBulletins();
       toggleCms(false);
-      alert(`Warta sekolah "${title}" berhasil disinkronkan ke website!`);
+      window.showToast('Warta Diterbitkan!', `Pengumuman "${title}" berhasil tayang di website.`, 'success');
     });
 
     // Handle PPDB Form Submission
@@ -904,11 +905,16 @@
       const phone = document.getElementById('regPhone').value;
       const track = document.getElementById('regTrack').value;
 
+      window.showToast('Memproses Pendaftaran...', `Menghubungkan formulir PPDB ${student} ke panitia via WhatsApp.`, 'info');
+
       const waMsg = `Halo Panitia PPDB Cakrawala Academy, saya ingin mendaftarkan calon siswa:\n\n• Nama Siswa: ${student}\n• Orang Tua: ${parent}\n• No. WhatsApp: ${phone}\n• Jalur Pendaftaran: ${track}\n\nMohon petunjuk kelengkapan berkas & jadwal tes. Terima kasih!`;
-      window.open(`https://wa.me/6289605333747?text=${encodeURIComponent(waMsg)}`, '_blank');
+      setTimeout(() => {
+        window.open(`https://wa.me/6289605333747?text=${encodeURIComponent(waMsg)}`, '_blank');
+      }, 500);
     });
 
     renderBulletins();
   </script>
+  <script src="/demos-shared.js"></script>
 </body>
 </html>

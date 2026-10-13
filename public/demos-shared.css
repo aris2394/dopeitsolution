@@ -1,0 +1,125 @@
+/* Shared Premium Interactions & Micro-animations for Dope IT Solution Portfolio Demos */
+
+:root {
+  --anim-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --anim-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll Reveal Initial States */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s var(--anim-ease-out), transform 0.8s var(--anim-ease-out);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered Delay Utilities */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Interactive Hover Image Zoom */
+.zoom-hover-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.zoom-hover-img {
+  transition: transform 0.65s var(--anim-ease-out);
+}
+
+.zoom-hover-wrap:hover .zoom-hover-img {
+  transform: scale(1.06);
+}
+
+/* Premium Floating Toast Notifications */
+#premiumToastContainer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.premium-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(18, 18, 20, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #FFFFFF;
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  font-family: inherit;
+  font-size: 0.9rem;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.35s var(--anim-bounce);
+}
+
+.premium-toast.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.premium-toast.success {
+  border-left: 4px solid #10B981;
+}
+
+.premium-toast.info {
+  border-left: 4px solid #3B82F6;
+}
+
+.toast-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-content {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.toast-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 2px;
+}
+
+.toast-message {
+  font-size: 0.82rem;
+  color: #A1A1AA;
+}
+
+/* Glassmorphism Navbar with Scroll Detection */
+.nav-scrolled-active {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+  border-bottom-color: rgba(255,255,255,0.18) !important;
+}
+
+/* Button Click Pulse / Ripple Effect */
+.btn-pulse-active:active {
+  transform: scale(0.97) !important;
+}

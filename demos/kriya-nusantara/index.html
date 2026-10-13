@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/demos-shared.css">
   <style>
     :root {
       --primary: #D97706;
@@ -768,7 +769,7 @@
       saveCrafts(crafts);
       renderCrafts();
       toggleCms(false);
-      alert(`Karya seni "${title}" berhasil disinkronkan ke Cloudflare D1!`);
+      window.showToast('Karya Tersimpan!', `Karya "${title}" berhasil disinkronkan ke Cloudflare D1.`, 'success');
     });
 
     document.getElementById('exportForm').addEventListener('submit', (e) => {
@@ -778,11 +779,16 @@
       const phone = document.getElementById('ePhone').value.trim();
       const dest = document.getElementById('eDest').value.trim();
 
+      window.showToast('Memproses Inquiry Ekspor...', `Menghubungkan data ${name} ke kurator ekspor via WhatsApp.`, 'info');
+
       const msg = `Halo Kriya Nusantara Export Liaison, saya mengajukan inquiry ekspor seni:\n\n• Nama/Kolektor: ${name}\n• Email: ${email}\n• Kontak: ${phone}\n• Destinasi Tujuan: ${dest}\n\nMohon informasi prosedur kurasi dan tarif kargo khusus karya seni. Terima kasih!`;
-      window.open(`https://wa.me/6289605333747?text=${encodeURIComponent(msg)}`, '_blank');
+      setTimeout(() => {
+        window.open(`https://wa.me/6289605333747?text=${encodeURIComponent(msg)}`, '_blank');
+      }, 500);
     });
 
     renderCrafts();
   </script>
+  <script src="/demos-shared.js"></script>
 </body>
 </html>

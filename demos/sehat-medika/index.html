@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/demos-shared.css">
   <style>
     :root {
       --primary: #059669;
@@ -754,7 +755,7 @@
       saveDoctors(doctors);
       renderDoctors();
       toggleCms(false);
-      alert(`Jadwal dokter "${name}" sukses diperbarui di Filament!`);
+      window.showToast('Jadwal Diperbarui!', `Jadwal dokter "${name}" sukses tersimpan di Filament.`, 'success');
     });
 
     // Handle Antrean Form via WhatsApp
@@ -766,11 +767,16 @@
       const date = document.getElementById('qDate').value;
       const queueNum = `SM-${Math.floor(100 + Math.random() * 900)}`;
 
+      window.showToast('Antrean Disiapkan!', `Nomor [${queueNum}] siap dikonfirmasi via WhatsApp.`, 'info');
+
       const msg = `Halo Resepsionis Klinik Utama Sehat Medika, saya mendaftarkan antrean online:\n\n• No. Antrean: *${queueNum}*\n• Nama Pasien: ${name}\n• No. WhatsApp: ${phone}\n• Dokter Dituju: ${doc}\n• Tanggal Konsultasi: ${date}\n\nMohon konfirmasi kedatangan. Terima kasih!`;
-      window.open(`https://wa.me/6289605333747?text=${encodeURIComponent(msg)}`, '_blank');
+      setTimeout(() => {
+        window.open(`https://wa.me/6289605333747?text=${encodeURIComponent(msg)}`, '_blank');
+      }, 500);
     });
 
     renderDoctors();
   </script>
+  <script src="/demos-shared.js"></script>
 </body>
 </html>

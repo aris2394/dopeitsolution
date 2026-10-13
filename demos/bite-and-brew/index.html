@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/demos-shared.css">
   <style>
     :root {
       --primary: #C28E5C;
@@ -920,7 +921,7 @@
       saveMenuItems(menuItems);
       renderMenu();
       toggleCms(false);
-      alert(`Berhasil! Data menu "${title}" berhasil disimpan ke sistem CMS.`);
+      window.showToast('Berhasil Disimpan!', `Menu "${title}" berhasil disinkronkan ke Headless CMS.`, 'success');
     });
 
     // Handle Reservation Form via WhatsApp
@@ -931,12 +932,17 @@
       const date = document.getElementById('resvDate').value;
       const pax = document.getElementById('resvPax').value;
 
+      window.showToast('Memproses Reservasi...', `Mengarahkan ${name} ke konfirmasi WhatsApp resmi.`, 'info');
+
       const waText = `Halo Bite & Brew Artisan Cafe, saya ingin reservasi meja:\n\n• Nama: ${name}\n• No. WA: ${phone}\n• Tanggal: ${date}\n• Jumlah: ${pax} Orang\n\nMohon konfirmasi ketersediaan meja. Terima kasih!`;
       const targetNumber = '6289605333747';
-      window.open(`https://wa.me/${targetNumber}?text=${encodeURIComponent(waText)}`, '_blank');
+      setTimeout(() => {
+        window.open(`https://wa.me/${targetNumber}?text=${encodeURIComponent(waText)}`, '_blank');
+      }, 500);
     });
 
     renderMenu();
   </script>
+  <script src="/demos-shared.js"></script>
 </body>
 </html>
