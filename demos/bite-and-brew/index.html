@@ -3,22 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bite & Brew Artisan Cafe | Live Demo by Dope IT Solution</title>
-  <meta name="description" content="Demo website F&B modern dengan Headless CMS untuk Bite & Brew Artisan Cafe. Pengelolaan menu, promo, dan reservasi instan tanpa koding.">
+  <title>Bite & Brew Artisan Cafe | Fine Coffee & Artisanal Bakery</title>
+  <meta name="description" content="Company Profile resmi Bite & Brew Artisan Cafe. Nikmati specialty coffee nusantara dan aneka pastry segar dengan sistem online order & reservasi meja kilat.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #C28E5C;
-      --primary-dark: #8D5B2C;
-      --bg-dark: #12100E;
-      --surface-dark: #1D1A16;
-      --surface-card: #26221D;
-      --text-main: #F5EBE1;
-      --text-muted: #A89F91;
-      --accent: #E0A96D;
-      --border: rgba(194, 142, 92, 0.2);
+      --primary-hover: #D89F6B;
+      --primary-dark: #845325;
+      --bg-dark: #0D0B09;
+      --surface-1: #171410;
+      --surface-2: #211D17;
+      --surface-card: #2B251E;
+      --text-main: #FBF7F2;
+      --text-muted: #B5A898;
+      --accent: #E5A968;
+      --border: rgba(194, 142, 92, 0.22);
+      --border-light: rgba(255, 255, 255, 0.08);
+      --shadow-lg: 0 20px 40px rgba(0,0,0,0.6);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -26,501 +30,751 @@
       background-color: var(--bg-dark);
       color: var(--text-main);
       line-height: 1.6;
-      padding-bottom: 80px;
+      overflow-x: hidden;
     }
-    /* Demo Header Top Bar */
-    .demo-bar {
-      background: #0B0A08;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding: 0.6rem 1.5rem;
+    h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+
+    /* Top Sticky Bar */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(13, 11, 9, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 1.75rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.85rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(10px);
     }
-    .demo-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(194, 142, 92, 0.2);
-      color: var(--accent);
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      font-weight: 600;
-    }
-    .demo-nav-actions {
+    .brand-group {
       display: flex;
-      gap: 0.75rem;
       align-items: center;
+      gap: 1.25rem;
     }
-    .btn-action {
-      background: var(--primary);
-      color: #fff;
-      padding: 0.4rem 0.9rem;
-      border-radius: 6px;
+    .back-btn {
+      color: var(--text-muted);
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.8rem;
-      border: none;
-      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-light);
+      background: rgba(255,255,255,0.02);
       transition: all 0.2s;
     }
-    .btn-action:hover { background: var(--accent); }
-    .btn-cms-toggle {
-      background: #2563EB;
-      color: #fff;
+    .back-btn:hover {
+      color: #FFF;
+      border-color: var(--primary);
+      background: rgba(194,142,92,0.1);
+    }
+    .cafe-brand {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #FFF;
+      letter-spacing: -0.5px;
+    }
+    .cafe-brand span { color: var(--accent); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .btn-cms-admin {
+      background: linear-gradient(135deg, #2563EB, #1D4ED8);
+      color: #FFF;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.3);
+      transition: all 0.2s;
     }
-    .btn-cms-toggle:hover { background: #1D4ED8; }
-
-    /* Cafe Hero */
-    .hero {
-      position: relative;
-      padding: 5rem 1.5rem 4rem;
-      text-align: center;
-      background: radial-gradient(circle at center, rgba(194, 142, 92, 0.15) 0%, transparent 70%);
-      border-bottom: 1px solid var(--border);
+    .btn-cms-admin:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37,99,235,0.5);
     }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
+    .btn-reserve-nav {
+      background: var(--primary);
+      color: #0D0B09;
+      font-size: 0.82rem;
       font-weight: 700;
-      color: #FFF;
-      margin-bottom: 1rem;
-      letter-spacing: -0.5px;
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
     }
-    .hero p {
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      color: var(--text-muted);
-      font-size: 1.1rem;
-    }
-    .hero-tags {
+    .btn-reserve-nav:hover { background: var(--accent); }
+
+    /* Hero Banner with Realistic Image */
+    .hero-section {
+      position: relative;
+      min-height: 80vh;
       display: flex;
+      align-items: center;
       justify-content: center;
+      text-align: center;
+      padding: 5rem 1.5rem;
+      background: linear-gradient(180deg, rgba(13, 11, 9, 0.4) 0%, rgba(13, 11, 9, 0.85) 60%, var(--bg-dark) 100%),
+                  url('/images/demos/bite-and-brew/hero.jpg') center/cover no-repeat;
+    }
+    .hero-content {
+      max-width: 820px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(194, 142, 92, 0.2);
+      border: 1px solid rgba(194, 142, 92, 0.5);
+      color: var(--accent);
+      padding: 0.35rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      backdrop-filter: blur(6px);
+    }
+    .hero-content h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: #FFF;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--text-main);
+      opacity: 0.95;
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+    .hero-btns {
+      display: flex;
       gap: 1rem;
+      justify-content: center;
       flex-wrap: wrap;
     }
-    .hero-tag-item {
-      background: var(--surface-card);
+    .btn-main {
+      background: var(--primary);
+      color: #0D0B09;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-main:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(229,169,104,0.3);
+    }
+    .btn-outline {
+      background: rgba(0,0,0,0.5);
       border: 1px solid var(--border);
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
+      color: #FFF;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      transition: all 0.2s;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #FFF;
     }
 
     /* Container & Layout */
     .container {
-      max-width: 1140px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
-    .section-title-wrap {
-      text-align: center;
-      margin: 4rem 0 2rem;
+
+    /* Features 3 Column */
+    .features-strip {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border-light);
     }
-    .section-title-wrap h2 {
-      font-family: 'Playfair Display', serif;
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .feature-box {
+      background: var(--surface-1);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: transform 0.2s;
+    }
+    .feature-box:hover {
+      transform: translateY(-4px);
+      border-color: var(--border);
+    }
+    .feature-icon {
       font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .feature-box h3 {
+      font-size: 1.25rem;
       color: #FFF;
       margin-bottom: 0.5rem;
     }
-    .section-title-wrap p {
+    .feature-box p {
+      font-size: 0.9rem;
       color: var(--text-muted);
-      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
-    /* Category Filter */
-    .filter-pills {
+    /* Menu Section */
+    .menu-section {
+      padding: 6rem 0 4rem;
+    }
+    .section-head {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+    .section-head h2 {
+      font-size: 2.6rem;
+      color: #FFF;
+      margin-bottom: 0.75rem;
+    }
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Category Filter Tabs */
+    .filter-tabs {
       display: flex;
       justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 2.5rem;
+      gap: 0.75rem;
+      margin-bottom: 3rem;
       flex-wrap: wrap;
     }
-    .pill {
-      background: var(--surface-card);
-      border: 1px solid var(--border);
+    .tab-btn {
+      background: var(--surface-2);
+      border: 1px solid var(--border-light);
       color: var(--text-muted);
-      padding: 0.5rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.6rem 1.4rem;
       border-radius: 999px;
       cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 500;
       transition: all 0.2s;
     }
-    .pill.active, .pill:hover {
+    .tab-btn.active, .tab-btn:hover {
       background: var(--primary);
-      color: #FFF;
+      color: #0D0B09;
       border-color: var(--primary);
     }
 
     /* Menu Grid */
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 2rem;
     }
     .menu-card {
-      background: var(--surface-dark);
-      border: 1px solid var(--border);
-      border-radius: 14px;
+      background: var(--surface-1);
+      border: 1px solid var(--border-light);
+      border-radius: 18px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.2s, border-color 0.2s;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .menu-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--primary);
+      transform: translateY(-6px);
+      border-color: var(--border);
+      box-shadow: var(--shadow-lg);
     }
-    .menu-card-img {
-      height: 180px;
+    .menu-img-wrap {
+      height: 220px;
+      position: relative;
       background-size: cover;
       background-position: center;
-      position: relative;
     }
-    .menu-badge-status {
+    .menu-badge {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(0,0,0,0.7);
-      color: #34D399;
+      top: 14px;
+      left: 14px;
+      background: rgba(13, 11, 9, 0.85);
+      border: 1px solid var(--border);
+      color: var(--accent);
       font-size: 0.75rem;
       font-weight: 700;
-      padding: 0.2rem 0.6rem;
-      border-radius: 20px;
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(52, 211, 153, 0.3);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
     }
-    .menu-content {
-      padding: 1.25rem;
+    .menu-card-body {
+      padding: 1.75rem;
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .menu-header {
+    .menu-top-line {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
     }
     .menu-title {
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: #FFF;
+      font-family: 'Playfair Display', serif;
     }
     .menu-price {
-      font-size: 1.1rem;
-      font-weight: 700;
+      font-size: 1.2rem;
+      font-weight: 800;
       color: var(--accent);
     }
     .menu-desc {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      line-height: 1.5;
-      margin-bottom: 1rem;
-    }
-    .menu-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px dashed rgba(255,255,255,0.1);
-      padding-top: 0.8rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    /* Live CMS Simulation Drawer */
-    .cms-drawer {
-      position: fixed;
-      top: 0;
-      right: -420px;
-      width: 400px;
-      max-width: 90vw;
-      height: 100vh;
-      background: #18181B;
-      border-left: 1px solid #27272A;
-      box-shadow: -10px 0 30px rgba(0,0,0,0.6);
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .cms-drawer.open { right: 0; }
-    .cms-header {
-      padding: 1.25rem;
-      background: #27272A;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #3F3F46;
-    }
-    .cms-header h3 { font-size: 1.05rem; color: #FFF; }
-    .cms-body {
-      padding: 1.5rem;
-      overflow-y: auto;
-      flex: 1;
-    }
-    .cms-alert {
-      background: rgba(37, 99, 235, 0.15);
-      border: 1px solid rgba(37, 99, 235, 0.4);
-      color: #93C5FD;
-      padding: 0.75rem;
-      border-radius: 8px;
-      font-size: 0.82rem;
+      line-height: 1.6;
       margin-bottom: 1.25rem;
-      line-height: 1.4;
     }
-    .cms-field { margin-bottom: 1.1rem; }
-    .cms-field label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #D4D4D8;
-      margin-bottom: 0.35rem;
+    .menu-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-light);
+      padding-top: 1rem;
     }
-    .cms-input, .cms-select, .cms-textarea {
-      width: 100%;
-      background: #09090B;
-      border: 1px solid #3F3F46;
+    .btn-edit-item {
+      background: transparent;
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+      padding: 0.35rem 0.75rem;
       border-radius: 6px;
-      color: #FFF;
-      padding: 0.6rem 0.8rem;
-      font-size: 0.88rem;
-    }
-    .cms-input:focus, .cms-textarea:focus {
-      outline: none;
-      border-color: #3B82F6;
-    }
-    .cms-btn-submit {
-      width: 100%;
-      background: #2563EB;
-      color: #FFF;
-      border: none;
-      padding: 0.75rem;
-      font-weight: 600;
-      border-radius: 8px;
+      font-size: 0.8rem;
       cursor: pointer;
-      margin-top: 0.5rem;
-      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
     }
-    .cms-btn-submit:hover { background: #1D4ED8; }
+    .btn-edit-item:hover {
+      color: #FFF;
+      border-color: #3B82F6;
+      background: rgba(59, 130, 246, 0.1);
+    }
+    .btn-delete-item {
+      background: transparent;
+      border: none;
+      color: #EF4444;
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 0.35rem;
+      transition: opacity 0.2s;
+    }
+    .btn-delete-item:hover { opacity: 0.7; }
 
     /* Reservation Box */
     .reservation-section {
-      margin-top: 5rem;
-      background: var(--surface-card);
+      padding: 6rem 0;
+      background: radial-gradient(circle at center, rgba(194, 142, 92, 0.12) 0%, transparent 70%);
+    }
+    .reservation-box {
+      background: var(--surface-1);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 3rem 2rem;
+      border-radius: 24px;
+      padding: 3.5rem 2.5rem;
       text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
     }
     .reservation-form {
-      max-width: 650px;
-      margin: 1.5rem auto 0;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
     }
-    .input-resv {
-      background: var(--bg-dark);
-      border: 1px solid var(--border);
+    .resv-input {
+      background: var(--surface-2);
+      border: 1px solid var(--border-light);
       color: #FFF;
-      padding: 0.75rem 1rem;
+      padding: 0.85rem 1.1rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+    }
+    .resv-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    /* CMS Drawer (Full Working CRUD) */
+    .cms-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1999;
+      display: none;
+    }
+    .cms-overlay.open { display: block; }
+    .cms-drawer {
+      position: fixed;
+      top: 0;
+      right: -520px;
+      width: 500px;
+      max-width: 95vw;
+      height: 100vh;
+      background: #14120E;
+      border-left: 1px solid var(--border);
+      box-shadow: -15px 0 50px rgba(0,0,0,0.8);
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cms-drawer.open { right: 0; }
+    .cms-header {
+      padding: 1.5rem;
+      background: #1F1B14;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .cms-header h3 {
+      font-size: 1.2rem;
+      color: #FFF;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .cms-body {
+      padding: 1.75rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .cms-tip {
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      color: #93C5FD;
+      padding: 0.9rem 1rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .cms-field { margin-bottom: 1.25rem; }
+    .cms-field label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+    .cms-input, .cms-select, .cms-textarea {
+      width: 100%;
+      background: #090807;
+      border: 1px solid var(--border-light);
       border-radius: 8px;
+      color: #FFF;
+      padding: 0.75rem 0.9rem;
+      font-size: 0.92rem;
+    }
+    .cms-input:focus, .cms-select:focus, .cms-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .cms-submit-btn {
+      width: 100%;
+      background: var(--primary);
+      color: #0D0B09;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .cms-submit-btn:hover { background: var(--accent); }
+
+    /* Footer */
+    footer {
+      background: #080706;
+      border-top: 1px solid var(--border-light);
+      padding: 4rem 0 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Demo Bar -->
-  <div class="demo-bar">
-    <div style="display:flex; align-items:center; gap: 0.75rem;">
-      <a href="/#portofolio" style="color:#A89F91; text-decoration:none; display:flex; align-items:center; gap:4px;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  <!-- Top Bar -->
+  <header class="top-nav">
+    <div class="brand-group">
+      <a href="/#portofolio" class="back-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
         Kembali ke Dope IT Solution
       </a>
-      <span class="demo-badge">F&B Portfolio • Headless WordPress/Strapi</span>
+      <div class="cafe-brand">Bite & Brew <span>Artisan</span></div>
     </div>
-    <div class="demo-nav-actions">
-      <button class="btn-action btn-cms-toggle" id="openCmsBtn">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-        Simulasi CMS Admin (No-Code)
+    <div class="nav-actions">
+      <button class="btn-cms-admin" id="openCmsBtn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+        Panel CMS Headless (Live Edit)
       </button>
-    </div>
-  </div>
-
-  <!-- Cafe Hero -->
-  <header class="hero">
-    <div class="container">
-      <span style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem;">Fine Coffee & Artisanal Bakery</span>
-      <h1 id="heroTitle">Bite & Brew Artisan</h1>
-      <p id="heroSubtitle">Menghadirkan racikan biji kopi pilihan nusantara dengan proses roasting presisi dan aneka pastry segar yang dipanggang setiap pagi.</p>
-      <div class="hero-tags">
-        <div class="hero-tag-item">☕ Single Origin Specialty</div>
-        <div class="hero-tag-item">🥐 Freshly Baked Pastry</div>
-        <div class="hero-tag-item">⚡ Headless Ultra-Fast Menu</div>
-        <div class="hero-tag-item">📱 QR Ready Online Order</div>
-      </div>
+      <a href="#reservasi" class="btn-reserve-nav">Booking Meja</a>
     </div>
   </header>
 
-  <!-- Menu Section -->
-  <main class="container">
-    <div class="section-title-wrap">
-      <h2>Daftar Menu Favorit</h2>
-      <p>Data menu ini disinkronkan secara langsung dari panel CMS Headless tanpa reload halaman.</p>
+  <!-- Hero Banner -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <span class="hero-tag">Specialty Coffee & European Bakery</span>
+      <h1>Menghadirkan Kehangatan di Setiap Seduhan</h1>
+      <p>Bite & Brew memadukan biji kopi arabika pilihan dari perkebunan dataran tinggi nusantara dengan pastry autentik Eropa yang dipanggang segar setiap pagi.</p>
+      <div class="hero-btns">
+        <a href="#menu" class="btn-main">Jelajahi Menu Pilihan</a>
+        <a href="#reservasi" class="btn-outline">Reservasi Meja & VIP Lounge</a>
+      </div>
     </div>
+  </section>
 
-    <!-- Category Filters -->
-    <div class="filter-pills" id="filterPills">
-      <button class="pill active" data-cat="all">Semua Menu</button>
-      <button class="pill" data-cat="coffee">Specialty Coffee</button>
-      <button class="pill" data-cat="bakery">Artisan Pastry</button>
-      <button class="pill" data-cat="brunch">Main Course / Brunch</button>
+  <!-- Features Value Props -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-box">
+          <div class="feature-icon">☕</div>
+          <h3>Single Origin Specialty</h3>
+          <p>Biji kopi grade 1 terkurasi dari Gayo, Kintamani, dan Toraja dengan profil sangrai yang menonjolkan keaslian aroma buah dan rempah.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">🥐</div>
+          <h3>100% French Butter Pastry</h3>
+          <p>Croissant dan viennoiserie dipanggang bertahap menggunakan butter Elle & Vire untuk menghasilkan tekstur berlapis yang renyah sempurna.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">⚡</div>
+          <h3>Headless Ultra-Fast Menu</h3>
+          <p>Website super cepat bertenaga arsitektur modern Dope IT Solution. Pelanggan dapat membuka menu dari scan QR dalam hitungan 0.5 detik.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Menu Grid -->
-    <div class="menu-grid" id="menuGrid">
-      <!-- Generated via JS -->
+  <!-- Menu Showcase Section -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-head">
+        <h2>Daftar Menu Favorit Klien</h2>
+        <p>Semua item menu di bawah ini terhubung langsung ke panel CMS No-Code. Anda bisa mengedit harga, mengganti status, atau menambah menu baru kapan saja.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-tabs" id="filterTabs">
+        <button class="tab-btn active" data-cat="all">Semua Menu</button>
+        <button class="tab-btn" data-cat="coffee">Specialty Coffee</button>
+        <button class="tab-btn" data-cat="bakery">Artisanal Bakery</button>
+        <button class="tab-btn" data-cat="brunch">Main Course / Brunch</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="menu-grid" id="menuGrid">
+        <!-- Rendered via JS -->
+      </div>
     </div>
+  </section>
 
-    <!-- Reservation Section -->
-    <section class="reservation-section">
-      <h2 style="font-family:'Playfair Display',serif; color:#FFF; margin-bottom:0.5rem;">Reservasi Meja & Ruang Komunal</h2>
-      <p style="color:var(--text-muted); font-size:0.95rem;">Nikmati suasana tenang untuk meeting santai atau kumpul bersama teman. Dapatkan konfirmasi instan via WhatsApp.</p>
-      <form class="reservation-form" id="resvForm">
-        <input type="text" class="input-resv" placeholder="Nama Anda" required id="resvName">
-        <input type="date" class="input-resv" required id="resvDate">
-        <select class="input-resv" id="resvPax">
-          <option value="2">2 Orang</option>
-          <option value="4">4 Orang</option>
-          <option value="6">6 Orang</option>
-          <option value="10">Grup / VIP (10+)</option>
-        </select>
-        <button type="submit" class="btn-action" style="background:var(--accent); color:#12100E; font-size:0.95rem;">Booking Sekarang</button>
-      </form>
-      <div id="resvAlert" style="margin-top:1rem; color:#34D399; font-weight:600; display:none;"></div>
-    </section>
-  </main>
+  <!-- Reservation Section -->
+  <section class="reservation-section" id="reservasi">
+    <div class="container">
+      <div class="reservation-box">
+        <span class="hero-tag" style="margin-bottom:0.75rem;">Instant WhatsApp Confirmation</span>
+        <h2 style="font-size:2.4rem; color:#FFF; margin-bottom:0.75rem;">Reservasi Meja & Acara Komunal</h2>
+        <p style="color:var(--text-muted); font-size:1rem; max-width:620px; margin:0 auto;">
+          Dapatkan konfirmasi booking instan langsung ke nomor WhatsApp Anda tanpa antre atau telepon konvensional.
+        </p>
 
-  <!-- Live CMS Simulation Drawer -->
-  <div class="cms-drawer" id="cmsDrawer">
+        <form class="reservation-form" id="resvForm">
+          <input type="text" class="resv-input" placeholder="Nama Lengkap Anda" required id="resvName">
+          <input type="tel" class="resv-input" placeholder="Nomor WhatsApp" required id="resvPhone">
+          <input type="date" class="resv-input" required id="resvDate">
+          <select class="resv-input" id="resvPax">
+            <option value="2">2 Orang (Casual Dining)</option>
+            <option value="4">4 Orang (Family Table)</option>
+            <option value="8">8 Orang (Meeting Space)</option>
+            <option value="15">15+ Orang (Private Event)</option>
+          </select>
+          <button type="submit" class="btn-main" style="grid-column: 1 / -1; justify-content: center; font-size:1.05rem;">
+            Kirim Permintaan Reservasi ke WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CMS Drawer Overlay -->
+  <div class="cms-overlay" id="cmsOverlay"></div>
+
+  <!-- Real Interactive CMS Drawer -->
+  <aside class="cms-drawer" id="cmsDrawer">
     <div class="cms-header">
       <div>
-        <h3>CMS Admin Panel Demo</h3>
-        <span style="font-size:0.75rem; color:#A1A1AA;">Bite & Brew Headless Admin</span>
+        <h3 id="cmsModalTitle">Panel CMS Bite & Brew</h3>
+        <span style="font-size:0.75rem; color:#94A3B8;">Headless WordPress / Strapi Simulation</span>
       </div>
-      <button id="closeCmsBtn" style="background:none; border:none; color:#FFF; font-size:1.4rem; cursor:pointer;">&times;</button>
+      <button id="closeCmsBtn" style="background:none; border:none; color:#FFF; font-size:1.5rem; cursor:pointer;">&times;</button>
     </div>
     <div class="cms-body">
-      <div class="cms-alert">
-        💡 <strong>Uji Kemudahan Klien:</strong> Di sini pemilik kafe dapat menambah menu baru atau mengubah harga dalam hitungan detik tanpa memahami kode pemrograman sama sekali.
+      <div class="cms-tip">
+        ✨ <strong>Fitur No-Code Nyata:</strong> Tambah menu baru atau klik tombol <em>"Edit"</em> pada salah satu kartu menu. Data disimpan langsung ke penyimpanan lokal browser (LocalStorage) sehingga perubahan Anda tetap tersimpan saat reload halaman!
       </div>
 
-      <h4 style="color:#FFF; font-size:0.95rem; margin-bottom:1rem; border-bottom:1px solid #3F3F46; padding-bottom:0.4rem;">Tambah / Update Menu Kafe</h4>
-      <form id="addMenuForm">
+      <form id="menuCmsForm">
+        <input type="hidden" id="editItemId" value="">
         <div class="cms-field">
           <label>Nama Menu</label>
-          <input type="text" id="cmsMenuName" class="cms-input" placeholder="Misal: Honey Cinnamon Latte" required>
+          <input type="text" id="menuNameInput" class="cms-input" placeholder="Contoh: Sea Salt Caramel Macchiato" required>
         </div>
         <div class="cms-field">
-          <label>Kategori Menu</label>
-          <select id="cmsMenuCategory" class="cms-select">
+          <label>Kategori</label>
+          <select id="menuCategoryInput" class="cms-select">
             <option value="coffee">Specialty Coffee</option>
-            <option value="bakery">Artisan Pastry</option>
+            <option value="bakery">Artisanal Bakery</option>
             <option value="brunch">Main Course / Brunch</option>
           </select>
         </div>
         <div class="cms-field">
           <label>Harga (IDR)</label>
-          <input type="number" id="cmsMenuPrice" class="cms-input" placeholder="42000" required>
+          <input type="number" id="menuPriceInput" class="cms-input" placeholder="38000" required>
         </div>
         <div class="cms-field">
-          <label>Deskripsi Ringkas</label>
-          <textarea id="cmsMenuDesc" class="cms-textarea" rows="2" placeholder="Komposisi & keunikan rasa menu..." required></textarea>
+          <label>URL Gambar Menu (Bisa Gambar Sendiri / Unsplash)</label>
+          <input type="url" id="menuImgInput" class="cms-input" placeholder="https://images.unsplash.com/..." required>
         </div>
         <div class="cms-field">
-          <label>Label Promo / Status</label>
-          <select id="cmsMenuStatus" class="cms-select">
-            <option value="Tersedia">Tersedia</option>
+          <label>Deskripsi Menu</label>
+          <textarea id="menuDescInput" class="cms-textarea" rows="3" placeholder="Komposisi bahan premium, rasa, dan catatan aromatik..." required></textarea>
+        </div>
+        <div class="cms-field">
+          <label>Badge Highlight</label>
+          <select id="menuStatusInput" class="cms-select">
             <option value="Best Seller ⭐">Best Seller ⭐</option>
             <option value="Chef's Pick 🔥">Chef's Pick 🔥</option>
-            <option value="Limited Batch">Limited Batch</option>
+            <option value="Seasonal Batch ✨">Seasonal Batch ✨</option>
+            <option value="Tersedia">Tersedia</option>
           </select>
         </div>
-        <button type="submit" class="cms-btn-submit">💾 Simpan ke Headless CMS</button>
+        <button type="submit" class="cms-submit-btn" id="cmsSaveBtn">💾 Simpan Perubahan ke Website</button>
       </form>
     </div>
-  </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div style="font-size:1.3rem; font-weight:800; color:#FFF; margin-bottom:0.5rem; font-family:'Playfair Display', serif;">
+        Bite & Brew Artisan Cafe
+      </div>
+      <p style="margin-bottom:1rem;">Jl. Kemang Raya No. 42B, Jakarta Selatan • Buka Setiap Hari: 07:00 - 22:00 WIB</p>
+      <p style="font-size:0.8rem; opacity:0.6;">
+        Website Company Profile ini dibangun oleh <strong>Dope IT Solution</strong> untuk demonstrasi arsitektur Headless CMS & Performa Cepat UMKM F&B.
+      </p>
+    </div>
+  </footer>
 
   <script>
-    // Initial Menu State
-    let menuItems = [
+    // Initial Menu Data with high quality realistic food imagery
+    const defaultMenu = [
       {
         id: 1,
         title: "Signature Aren Velvet Espresso",
         category: "coffee",
         price: 36000,
-        desc: "Kopi susu signature dengan gula aren organik Lebak dan steamed fresh milk bertekstur beludru.",
-        status: "Best Seller ⭐",
-        bg: "linear-gradient(135deg, #3d2314, #1f1208)"
+        img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=700&q=80",
+        desc: "Perpaduan double ristretto arabika Kintamani dengan gula aren organik dan steamed milk ekstra lembut.",
+        status: "Best Seller ⭐"
       },
       {
         id: 2,
-        title: "Almond Butter Croissant",
+        title: "Golden Almond Butter Croissant",
         category: "bakery",
         price: 38000,
-        desc: "Pastry renyah dengan 100% French butter Elle & Vire, dipanggang dengan pasta almond premium.",
-        status: "Chef's Pick 🔥",
-        bg: "linear-gradient(135deg, #573b18, #2a1a06)"
+        img: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80",
+        desc: "Pastry renyah 100% French butter Elle & Vire berlapis krim almond panggang dan irisan kacang gurih.",
+        status: "Chef's Pick 🔥"
       },
       {
         id: 3,
-        title: "Cold Drip Geisha Panama",
+        title: "Cold Drip Geisha Floral Notes",
         category: "coffee",
         price: 52000,
-        desc: "Seduhan dingin 16 jam dengan notes melati elegan, peach, dan rasa manis madu liar alami.",
-        status: "Limited Batch",
-        bg: "linear-gradient(135deg, #2b1d15, #140d09)"
+        img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=700&q=80",
+        desc: "Ekstraksi dingin tetes perlahan selama 16 jam dengan aroma melati segar, buah peach, dan madu liar.",
+        status: "Seasonal Batch ✨"
       },
       {
         id: 4,
         title: "Sourdough Truffle Scrambled Egg",
         category: "brunch",
         price: 68000,
-        desc: "Roti sourdough fermentasi 48 jam dengan telur creamy, aroma minyak truffle putih, dan jamur portobello.",
-        status: "Tersedia",
-        bg: "linear-gradient(135deg, #423821, #1e1909)"
+        img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80",
+        desc: "Roti sourdough fermentasi 48 jam dengan telur creamy kaya butter, white truffle oil, dan tumisan portobello.",
+        status: "Tersedia"
       },
       {
         id: 5,
         title: "Matcha Uji Basque Cheesecake",
         category: "bakery",
         price: 45000,
-        desc: "Cheesecake lumer dengan teh hijau murni dari perkebunan Uji, Kyoto. Manis seimbang dengan hints karamel.",
-        status: "Best Seller ⭐",
-        bg: "linear-gradient(135deg, #1b361f, #091a0c)"
+        img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=80",
+        desc: "Cheesecake bertekstur lumer menggunakan bubuk matcha murni asal Kyoto dengan bagian atas gosong karamel.",
+        status: "Best Seller ⭐"
       },
       {
         id: 6,
-        title: "Spanish Smoked Paprika Chicken",
+        title: "Smoked Paprika Grilled Chicken",
         category: "brunch",
         price: 78000,
-        desc: "Ayam fillet panggang rempah khas Spanyol disajikan bersama salad segar dan butter baby potato.",
-        status: "Tersedia",
-        bg: "linear-gradient(135deg, #4f2214, #260d05)"
+        img: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=700&q=80",
+        desc: "Dada ayam fillet panggang rempah Andalusia disajikan dengan butter potato wedges dan salad saus mustard.",
+        status: "Tersedia"
       }
     ];
 
+    // LocalStorage State Management
+    function loadMenuItems() {
+      const stored = localStorage.getItem('bite_brew_menu_data');
+      if (stored) {
+        try { return JSON.parse(stored); } catch(e) {}
+      }
+      return defaultMenu;
+    }
+
+    function saveMenuItems(items) {
+      localStorage.setItem('bite_brew_menu_data', JSON.stringify(items));
+    }
+
+    let menuItems = loadMenuItems();
     let currentFilter = 'all';
 
     function formatRupiah(num) {
@@ -529,27 +783,41 @@
 
     function renderMenu() {
       const grid = document.getElementById('menuGrid');
-      const filtered = currentFilter === 'all' 
-        ? menuItems 
+      const filtered = currentFilter === 'all'
+        ? menuItems
         : menuItems.filter(item => item.category === currentFilter);
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-muted);">Belum ada menu di kategori ini. Buka Panel CMS untuk menambahkan menu baru.</div>`;
+        return;
+      }
 
       grid.innerHTML = filtered.map(item => `
         <article class="menu-card">
-          <div class="menu-card-img" style="background: ${item.bg}; display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 3rem;">${item.category === 'coffee' ? '☕' : item.category === 'bakery' ? '🥐' : '🍽️'}</span>
-            <span class="menu-badge-status">${item.status}</span>
+          <div class="menu-img-wrap" style="background-image: url('${item.img}');">
+            <span class="menu-badge">${item.status}</span>
           </div>
-          <div class="menu-content">
+          <div class="menu-card-body">
             <div>
-              <div class="menu-header">
+              <div class="menu-top-line">
                 <h3 class="menu-title">${item.title}</h3>
                 <span class="menu-price">${formatRupiah(item.price)}</span>
               </div>
               <p class="menu-desc">${item.desc}</p>
             </div>
-            <div class="menu-footer">
-              <span>Kategori: ${item.category.toUpperCase()}</span>
-              <span style="color:var(--accent);">✓ Terverifikasi Headless</span>
+            <div class="menu-card-footer">
+              <span style="font-size: 0.8rem; color: var(--primary); font-weight: 600;">
+                Kategori: ${item.category.toUpperCase()}
+              </span>
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button class="btn-edit-item" onclick="openEditModal(${item.id})">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                  Edit CMS
+                </button>
+                <button class="btn-delete-item" title="Hapus Menu" onclick="deleteMenuItem(${item.id})">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </button>
+              </div>
             </div>
           </div>
         </article>
@@ -557,60 +825,115 @@
     }
 
     // Filter Buttons
-    document.querySelectorAll('.pill').forEach(btn => {
+    document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentFilter = btn.dataset.cat;
         renderMenu();
       });
     });
 
-    // CMS Drawer Toggle
+    // CMS Drawer UI
     const cmsDrawer = document.getElementById('cmsDrawer');
-    document.getElementById('openCmsBtn').addEventListener('click', () => {
-      cmsDrawer.classList.add('open');
-    });
-    document.getElementById('closeCmsBtn').addEventListener('click', () => {
-      cmsDrawer.classList.remove('open');
+    const cmsOverlay = document.getElementById('cmsOverlay');
+    const openCmsBtn = document.getElementById('openCmsBtn');
+    const closeCmsBtn = document.getElementById('closeCmsBtn');
+
+    function toggleCms(open = true) {
+      if (open) {
+        cmsDrawer.classList.add('open');
+        cmsOverlay.classList.add('open');
+      } else {
+        cmsDrawer.classList.remove('open');
+        cmsOverlay.classList.remove('open');
+      }
+    }
+
+    openCmsBtn.addEventListener('click', () => {
+      document.getElementById('menuCmsForm').reset();
+      document.getElementById('editItemId').value = "";
+      document.getElementById('cmsModalTitle').textContent = "Tambah Menu Baru (Headless CMS)";
+      document.getElementById('menuImgInput').value = "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80";
+      toggleCms(true);
     });
 
-    // Handle Add Menu via CMS
-    document.getElementById('addMenuForm').addEventListener('submit', (e) => {
+    closeCmsBtn.addEventListener('click', () => toggleCms(false));
+    cmsOverlay.addEventListener('click', () => toggleCms(false));
+
+    // Edit Function
+    window.openEditModal = function(id) {
+      const item = menuItems.find(m => m.id === id);
+      if (!item) return;
+
+      document.getElementById('editItemId').value = item.id;
+      document.getElementById('menuNameInput').value = item.title;
+      document.getElementById('menuCategoryInput').value = item.category;
+      document.getElementById('menuPriceInput').value = item.price;
+      document.getElementById('menuImgInput').value = item.img;
+      document.getElementById('menuDescInput').value = item.desc;
+      document.getElementById('menuStatusInput').value = item.status;
+      document.getElementById('cmsModalTitle').textContent = `Edit Menu: ${item.title}`;
+
+      toggleCms(true);
+    };
+
+    // Delete Function
+    window.deleteMenuItem = function(id) {
+      if (confirm('Yakin ingin menghapus item menu ini dari database website?')) {
+        menuItems = menuItems.filter(m => m.id !== id);
+        saveMenuItems(menuItems);
+        renderMenu();
+      }
+    };
+
+    // Form Submit (Create / Update)
+    document.getElementById('menuCmsForm').addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('cmsMenuName').value.trim();
-      const category = document.getElementById('cmsMenuCategory').value;
-      const price = Number(document.getElementById('cmsMenuPrice').value);
-      const desc = document.getElementById('cmsMenuDesc').value.trim();
-      const status = document.getElementById('cmsMenuStatus').value;
+      const editId = document.getElementById('editItemId').value;
+      const title = document.getElementById('menuNameInput').value.trim();
+      const category = document.getElementById('menuCategoryInput').value;
+      const price = Number(document.getElementById('menuPriceInput').value);
+      const img = document.getElementById('menuImgInput').value.trim();
+      const desc = document.getElementById('menuDescInput').value.trim();
+      const status = document.getElementById('menuStatusInput').value;
 
-      menuItems.unshift({
-        id: Date.now(),
-        title: name,
-        category: category,
-        price: price,
-        desc: desc,
-        status: status,
-        bg: category === 'coffee' ? 'linear-gradient(135deg, #3d2314, #1f1208)' : category === 'bakery' ? 'linear-gradient(135deg, #573b18, #2a1a06)' : 'linear-gradient(135deg, #423821, #1e1909)'
-      });
+      if (editId) {
+        // Update existing
+        const index = menuItems.findIndex(m => m.id === Number(editId));
+        if (index !== -1) {
+          menuItems[index] = { ...menuItems[index], title, category, price, img, desc, status };
+        }
+      } else {
+        // Create new
+        menuItems.unshift({
+          id: Date.now(),
+          title,
+          category,
+          price,
+          img,
+          desc,
+          status
+        });
+      }
 
+      saveMenuItems(menuItems);
       renderMenu();
-      cmsDrawer.classList.remove('open');
-      document.getElementById('addMenuForm').reset();
-      alert(`Berhasil menambahkan menu "${name}" ke Headless CMS! Perubahan langsung tayang.`);
+      toggleCms(false);
+      alert(`Berhasil! Data menu "${title}" berhasil disimpan ke sistem CMS.`);
     });
 
-    // Reservation Form
+    // Handle Reservation Form via WhatsApp
     document.getElementById('resvForm').addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('resvName').value;
+      const name = document.getElementById('resvName').value.trim();
+      const phone = document.getElementById('resvPhone').value.trim();
       const date = document.getElementById('resvDate').value;
       const pax = document.getElementById('resvPax').value;
-      const alertBox = document.getElementById('resvAlert');
-      alertBox.textContent = `Terima kasih Kak ${name}! Reservasi untuk ${pax} orang pada ${date} telah dicatat sistem.`;
-      alertBox.style.display = 'block';
-      setTimeout(() => alertBox.style.display = 'none', 6000);
-      document.getElementById('resvForm').reset();
+
+      const waText = `Halo Bite & Brew Artisan Cafe, saya ingin reservasi meja:\n\n• Nama: ${name}\n• No. WA: ${phone}\n• Tanggal: ${date}\n• Jumlah: ${pax} Orang\n\nMohon konfirmasi ketersediaan meja. Terima kasih!`;
+      const targetNumber = '6289605333747';
+      window.open(`https://wa.me/${targetNumber}?text=${encodeURIComponent(waText)}`, '_blank');
     });
 
     renderMenu();

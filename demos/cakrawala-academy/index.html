@@ -3,472 +3,912 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cakrawala Academy | Portal Pendidikan & Kursus Digital</title>
-  <meta name="description" content="Platform website profil sekolah dan akademi modern dengan integrasi kurikulum, pengumuman, dan sistem portal pendaftaran online.">
+  <title>Cakrawala Academy | Institusi Pendidikan Unggul & Riset Digital</title>
+  <meta name="description" content="Company Profile resmi Cakrawala Academy. Kampus berstandar global dengan kurikulum terpadu STEM, bahasa internasional, dan portal PPDB online modern.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #0284C7;
+      --primary-hover: #38BDF8;
       --primary-dark: #0369A1;
       --secondary: #0D9488;
-      --bg-page: #0B1320;
-      --surface-1: #111E33;
-      --surface-2: #192942;
-      --text-main: #F1F5F9;
+      --bg-dark: #070D18;
+      --surface-1: #0F1A2E;
+      --surface-2: #16243D;
+      --surface-card: #1C2D4A;
+      --text-main: #F8FAFC;
       --text-muted: #94A3B8;
-      --border: rgba(14, 165, 233, 0.2);
       --accent: #38BDF8;
+      --border: rgba(14, 165, 233, 0.22);
+      --border-light: rgba(255, 255, 255, 0.08);
+      --shadow-lg: 0 20px 40px rgba(0,0,0,0.6);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-page);
+      background-color: var(--bg-dark);
       color: var(--text-main);
       line-height: 1.6;
-      padding-bottom: 80px;
     }
-    .demo-bar {
-      background: #080D17;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding: 0.6rem 1.5rem;
+    h1, h2, h3, .brand-font { font-family: 'Cabinet Grotesk', sans-serif; }
+
+    /* Top Sticky Bar */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 13, 24, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 1.75rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.85rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(10px);
     }
-    .demo-badge {
-      display: inline-flex;
+    .brand-group {
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      background: rgba(14, 165, 233, 0.2);
-      color: var(--accent);
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      font-weight: 600;
+      gap: 1.25rem;
     }
-    .btn-action {
-      background: var(--primary);
-      color: #fff;
-      padding: 0.45rem 1rem;
-      border-radius: 6px;
+    .back-btn {
+      color: var(--text-muted);
       text-decoration: none;
-      font-weight: 600;
       font-size: 0.82rem;
-      border: none;
-      cursor: pointer;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-light);
+      background: rgba(255,255,255,0.02);
       transition: all 0.2s;
     }
-    .btn-action:hover { background: var(--primary-dark); }
-    .btn-cms-toggle {
-      background: #0D9488;
-      color: #fff;
+    .back-btn:hover {
+      color: #FFF;
+      border-color: var(--primary);
+      background: rgba(2, 132, 199, 0.15);
+    }
+    .school-brand {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #FFF;
+      letter-spacing: -0.5px;
+    }
+    .school-brand span { color: var(--accent); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .btn-cms-admin {
+      background: linear-gradient(135deg, #0D9488, #0F766E);
+      color: #FFF;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
+      box-shadow: 0 4px 14px rgba(13,148,136,0.3);
+      transition: all 0.2s;
     }
-    .btn-cms-toggle:hover { background: #0F766E; }
-
-    /* Academy Hero */
-    .hero {
-      padding: 5rem 1.5rem 4rem;
-      text-align: center;
-      background: radial-gradient(circle at 50% 20%, rgba(14, 165, 233, 0.2) 0%, transparent 60%);
-      border-bottom: 1px solid var(--border);
+    .btn-cms-admin:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(13,148,136,0.5);
     }
-    .badge-tag {
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: var(--accent);
-      padding: 0.3rem 0.9rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: inline-block;
-      margin-bottom: 1rem;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 800;
+    .btn-portal-nav {
+      background: var(--primary);
       color: #FFF;
-      margin-bottom: 1.25rem;
-      letter-spacing: -0.5px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
     }
-    .hero p {
-      max-width: 680px;
-      margin: 0 auto 2rem;
-      color: var(--text-muted);
-      font-size: 1.1rem;
-    }
-    .stat-row {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .stat-card {
-      background: var(--surface-1);
-      border: 1px solid var(--border);
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      min-width: 160px;
-    }
-    .stat-val { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
-    .stat-lbl { font-size: 0.82rem; color: var(--text-muted); }
+    .btn-portal-nav:hover { background: var(--primary-hover); }
 
-    /* Main Container */
+    /* Hero Banner with Realistic Image */
+    .hero-section {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 1.5rem;
+      background: linear-gradient(180deg, rgba(7, 13, 24, 0.45) 0%, rgba(7, 13, 24, 0.88) 65%, var(--bg-dark) 100%),
+                  url('/images/demos/cakrawala-academy/hero.jpg') center/cover no-repeat;
+    }
+    .hero-content {
+      max-width: 860px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(14, 165, 233, 0.2);
+      border: 1px solid rgba(14, 165, 233, 0.5);
+      color: var(--accent);
+      padding: 0.35rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      backdrop-filter: blur(6px);
+    }
+    .hero-content h1 {
+      font-size: 3.8rem;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: #FFF;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #E2E8F0;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-main {
+      background: var(--primary);
+      color: #FFF;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-main:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(56,189,248,0.3);
+    }
+    .btn-outline {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid var(--border);
+      color: #FFF;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      transition: all 0.2s;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #FFF;
+    }
+
+    /* Container */
     .container {
-      max-width: 1140px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
-    .section-head {
-      text-align: center;
-      margin: 4rem 0 2.5rem;
-    }
-    .section-head h2 { font-size: 2.2rem; font-weight: 700; color: #FFF; }
-    .section-head p { color: var(--text-muted); margin-top: 0.5rem; }
 
-    /* Grid Courses / Program */
-    .program-grid {
+    /* Stats strip */
+    .stats-section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
     }
-    .program-card {
+    .stat-card {
       background: var(--surface-1);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.75rem;
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--accent);
+      font-family: 'Cabinet Grotesk', sans-serif;
+    }
+    .stat-lbl {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Curriculum Grid */
+    .curriculum-section {
+      padding: 6rem 0;
+    }
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 3.5rem;
+    }
+    .section-head h2 {
+      font-size: 2.6rem;
+      color: #FFF;
+      margin-bottom: 0.75rem;
+    }
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    .curriculum-card {
+      background: var(--surface-1);
+      border: 1px solid var(--border-light);
+      border-radius: 18px;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s, border-color 0.2s;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .program-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
+    .curriculum-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border);
+      box-shadow: var(--shadow-lg);
     }
-    .program-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(14, 165, 233, 0.15);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
+    .curriculum-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .curriculum-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(7, 13, 24, 0.85);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+    }
+    .curriculum-body {
+      padding: 1.75rem;
+    }
+    .curriculum-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #FFF;
+      margin-bottom: 0.5rem;
+    }
+    .curriculum-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
       margin-bottom: 1.25rem;
     }
-    .program-title { font-size: 1.25rem; font-weight: 700; color: #FFF; margin-bottom: 0.6rem; }
-    .program-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem; line-height: 1.6; }
-    .program-meta {
+    .curriculum-meta {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-light);
+      padding-top: 1rem;
       font-size: 0.82rem;
       color: var(--accent);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 1rem;
+      font-weight: 600;
     }
 
-    /* Pengumuman & Agenda Section */
-    .announcement-box {
-      margin-top: 4rem;
+    /* Announcement Bulletin Board */
+    .bulletin-section {
+      padding: 5rem 0;
       background: var(--surface-1);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
     }
-    .announcement-item {
+    .bulletin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .bulletin-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .bulletin-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
       display: flex;
       align-items: flex-start;
-      gap: 1.25rem;
-      padding: 1.2rem 0;
-      border-bottom: 1px dashed rgba(255,255,255,0.1);
+      gap: 1.5rem;
+      transition: border-color 0.2s;
     }
-    .announcement-item:last-child { border-bottom: none; }
-    .announcement-date {
-      background: var(--surface-2);
+    .bulletin-card:hover {
+      border-color: var(--primary);
+    }
+    .bulletin-date-box {
+      background: var(--surface-card);
       border: 1px solid var(--border);
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--accent);
-      white-space: nowrap;
+      border-radius: 10px;
+      padding: 0.6rem 1rem;
+      text-align: center;
+      min-width: 90px;
     }
-    .announcement-content h4 { font-size: 1.05rem; color: #FFF; margin-bottom: 0.25rem; }
-    .announcement-content p { font-size: 0.88rem; color: var(--text-muted); }
+    .bulletin-date-day {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .bulletin-date-month {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .bulletin-content {
+      flex: 1;
+    }
+    .bulletin-content h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 0.35rem;
+    }
+    .bulletin-content p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .bulletin-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .btn-bulletin-action {
+      background: transparent;
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+      padding: 0.35rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+    .btn-bulletin-action:hover {
+      color: #FFF;
+      border-color: var(--primary);
+    }
 
-    /* PPDB Portal Callout */
-    .admission-banner {
-      margin-top: 4rem;
+    /* Admission PPDB Section */
+    .ppdb-section {
+      padding: 6rem 0;
+    }
+    .ppdb-banner {
       background: linear-gradient(135deg, #0369A1, #0D9488);
-      border-radius: 16px;
-      padding: 3rem 2rem;
+      border-radius: 24px;
+      padding: 4rem 2.5rem;
       text-align: center;
       color: #FFF;
+      max-width: 960px;
+      margin: 0 auto;
     }
-    .admission-banner h2 { font-size: 2rem; margin-bottom: 0.75rem; }
-    .admission-banner p { max-width: 600px; margin: 0 auto 1.5rem; opacity: 0.95; }
+    .ppdb-banner h2 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+    .ppdb-banner p {
+      font-size: 1.1rem;
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.95;
+    }
+    .ppdb-form {
+      background: rgba(7, 13, 24, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 680px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .ppdb-input {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #FFF;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+    .ppdb-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
 
     /* CMS Drawer */
+    .cms-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1999;
+      display: none;
+    }
+    .cms-overlay.open { display: block; }
     .cms-drawer {
       position: fixed;
       top: 0;
-      right: -420px;
-      width: 400px;
-      max-width: 90vw;
+      right: -520px;
+      width: 500px;
+      max-width: 95vw;
       height: 100vh;
-      background: #0F172A;
-      border-left: 1px solid #1E293B;
-      box-shadow: -10px 0 30px rgba(0,0,0,0.6);
-      z-index: 1000;
+      background: #0B1320;
+      border-left: 1px solid var(--border);
+      box-shadow: -15px 0 50px rgba(0,0,0,0.8);
+      z-index: 2000;
       display: flex;
       flex-direction: column;
-      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .cms-drawer.open { right: 0; }
     .cms-header {
-      padding: 1.25rem;
-      background: #1E293B;
+      padding: 1.5rem;
+      background: #111E33;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #334155;
+      border-bottom: 1px solid var(--border);
     }
-    .cms-header h3 { font-size: 1.05rem; color: #FFF; }
-    .cms-body { padding: 1.5rem; overflow-y: auto; flex: 1; }
-    .cms-field { margin-bottom: 1.1rem; }
-    .cms-field label { display: block; font-size: 0.82rem; font-weight: 600; color: #CBD5E1; margin-bottom: 0.35rem; }
+    .cms-body {
+      padding: 1.75rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .cms-field { margin-bottom: 1.25rem; }
+    .cms-field label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
     .cms-input, .cms-textarea {
       width: 100%;
-      background: #020617;
-      border: 1px solid #334155;
-      border-radius: 6px;
-      color: #FFF;
-      padding: 0.6rem 0.8rem;
-      font-size: 0.88rem;
-    }
-    .cms-btn-submit {
-      width: 100%;
-      background: #0284C7;
-      color: #FFF;
-      border: none;
-      padding: 0.75rem;
-      font-weight: 600;
+      background: #060B12;
+      border: 1px solid var(--border-light);
       border-radius: 8px;
+      color: #FFF;
+      padding: 0.75rem 0.9rem;
+      font-size: 0.92rem;
+    }
+    .cms-input:focus, .cms-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .cms-submit-btn {
+      width: 100%;
+      background: var(--primary);
+      color: #FFF;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 10px;
       cursor: pointer;
-      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .cms-submit-btn:hover { background: var(--primary-hover); }
+
+    /* Footer */
+    footer {
+      background: #040810;
+      border-top: 1px solid var(--border-light);
+      padding: 4rem 0 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Demo Header Bar -->
-  <div class="demo-bar">
-    <div style="display:flex; align-items:center; gap: 0.75rem;">
-      <a href="/#portofolio" style="color:#94A3B8; text-decoration:none; display:flex; align-items:center; gap:4px;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  <!-- Top Sticky Nav -->
+  <header class="top-nav">
+    <div class="brand-group">
+      <a href="/#portofolio" class="back-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
         Kembali ke Dope IT Solution
       </a>
-      <span class="demo-badge">Education Portfolio • Moodle / Payload CMS</span>
+      <div class="school-brand">Cakrawala <span>Academy</span></div>
     </div>
-    <div>
-      <button class="btn-action btn-cms-toggle" id="openCmsBtn">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-        Kelola Pengumuman (CMS Panel)
+    <div class="nav-actions">
+      <button class="btn-cms-admin" id="openCmsBtn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+        Panel Payload CMS (Warta Sekolah)
       </button>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="container">
-      <span class="badge-tag">Mencetak Generasi Berdaya Saing Global</span>
-      <h1>Cakrawala Academy</h1>
-      <p>Institusi pendidikan terpadu dengan kurikulum bilingual, riset sains terapan, dan ekosistem digital cerdas untuk mendukung masa depan cemerlang siswa.</p>
-      
-      <div class="stat-row">
-        <div class="stat-card">
-          <div class="stat-val">1.250+</div>
-          <div class="stat-lbl">Siswa Aktif Berprestasi</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val">98.4%</div>
-          <div class="stat-lbl">Kelulusan PTN & Luar Negeri</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val">45+</div>
-          <div class="stat-lbl">Laboratorium & Ekstrakurikuler</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val">24/7</div>
-          <div class="stat-lbl">Akses Portal Belajar Terintegrasi</div>
-        </div>
-      </div>
+      <a href="#ppdb" class="btn-portal-nav">Daftar PPDB Online</a>
     </div>
   </header>
 
-  <!-- Programs -->
-  <main class="container">
-    <div class="section-head">
-      <h2>Program Akademik & Keunggulan</h2>
-      <p>Pilihan jenjang pembelajaran yang dipersonalisasi sesuai minat dan bakat talenta siswa.</p>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <span class="hero-badge">Pendidikan Berkelas Dunia Berakar Karakter Bangsa</span>
+      <h1>Mencetak Pemimpin Masa Depan Berwawasan Global</h1>
+      <p>Cakrawala Academy mengintegrasikan kurikulum Cambridge, laboratorium sains terapan berbasis AI, dan pengembangan karakter holistik untuk mempersiapkan siswa berprestasi di universitas top dunia.</p>
+      <div class="hero-btns">
+        <a href="#kurikulum" class="btn-main">Eksplorasi Program Unggulan</a>
+        <a href="#warta" class="btn-outline">Papan Warta & Prestasi</a>
+      </div>
     </div>
+  </section>
 
-    <div class="program-grid">
-      <div class="program-card">
-        <div>
-          <div class="program-icon">🔬</div>
-          <h3 class="program-title">STEM & Applied Science Track</h3>
-          <p class="program-desc">Fokus pada rekayasa sains, koding, robotika, dan riset laboratorium terakreditasi internasional.</p>
+  <!-- Stats -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val">1.250+</div>
+          <div class="stat-lbl">Siswa Berprestasi Aktif</div>
         </div>
-        <div class="program-meta">
-          <span>Kategori: Sains & Teknologi</span>
-          <span>4 Semester Terpadu</span>
+        <div class="stat-card">
+          <div class="stat-val">98.4%</div>
+          <div class="stat-lbl">Tingkat Penerimaan PTN & Luar Negeri</div>
         </div>
-      </div>
-
-      <div class="program-card">
-        <div>
-          <div class="program-icon">🌐</div>
-          <h3 class="program-title">Global Leadership & Humanities</h3>
-          <p class="program-desc">Penguatan kemampuan diplomasi, public speaking bahasa asing (Inggris & Mandarin), serta literasi ekonomi global.</p>
+        <div class="stat-card">
+          <div class="stat-val">42+</div>
+          <div class="stat-lbl">Lab Riset & Ekskul Unggulan</div>
         </div>
-        <div class="program-meta">
-          <span>Kategori: Sosial & Bahasa</span>
-          <span>Sertifikasi Cambridge</span>
-        </div>
-      </div>
-
-      <div class="program-card">
-        <div>
-          <div class="program-icon">🎨</div>
-          <h3 class="program-title">Creative Digital & Interactive Art</h3>
-          <p class="program-desc">Eksplorasi desain grafis, animasi multimedia, UI/UX, dan produksi audio-visual masa kini.</p>
-        </div>
-        <div class="program-meta">
-          <span>Kategori: Seni & Multimedia</span>
-          <span>Portfolio Studio Ready</span>
+        <div class="stat-card">
+          <div class="stat-val">1:12</div>
+          <div class="stat-lbl">Rasio Interaksi Guru & Siswa</div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Announcement Feed -->
-    <div class="announcement-box">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
-        <div>
-          <h3 style="font-size:1.4rem; color:#FFF;">Papan Warta & Agenda Akademik</h3>
-          <p style="font-size:0.85rem; color:var(--text-muted);">Informasi resmi sekolah yang terupdate otomatis melalui CMS Administrator.</p>
-        </div>
-        <span style="font-size:0.8rem; background:rgba(14, 165, 233, 0.2); color:var(--accent); padding:0.25rem 0.75rem; border-radius:999px;">Live Synced</span>
+  <!-- Kurikulum Programs -->
+  <section class="curriculum-section" id="kurikulum">
+    <div class="container">
+      <div class="section-head">
+        <h2>Jalur Peminatan & Riset Terapan</h2>
+        <p>Setiap siswa dibimbing oleh mentor ahli dan profesor mitra industri untuk menemukan passion karir sedini mungkin.</p>
       </div>
 
-      <div id="announcementList">
-        <!-- Rendered via JS -->
+      <div class="curriculum-grid">
+        <div class="curriculum-card">
+          <div class="curriculum-img" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=80');">
+            <span class="curriculum-badge">STEM & Robotic</span>
+          </div>
+          <div class="curriculum-body">
+            <h3 class="curriculum-title">Advanced STEM & Robotic Engineering</h3>
+            <p class="curriculum-desc">Pembelajaran koding algoritma, IoT sensorik, perancangan otomasi industri, dan riset sains laboratorium bersertifikasi.</p>
+            <div class="curriculum-meta">
+              <span>Kurikulum Cambridge IGCSE</span>
+              <span>4 Semester Intensif</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="curriculum-card">
+          <div class="curriculum-img" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=80');">
+            <span class="curriculum-badge">Diplomacy & Economy</span>
+          </div>
+          <div class="curriculum-body">
+            <h3 class="curriculum-title">Global Leadership & International Relations</h3>
+            <p class="curriculum-desc">Pengasahan kemampuan debat bilingual, simulasi sidang PBB (Model UN), ekonomi makro digital, dan literasi hukum global.</p>
+            <div class="curriculum-meta">
+              <span>Sertifikasi Oxford AQA</span>
+              <span>Studi Ekskursi Luar Negeri</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="curriculum-card">
+          <div class="curriculum-img" style="background-image: url('https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=700&q=80');">
+            <span class="curriculum-badge">Creative Multimedia</span>
+          </div>
+          <div class="curriculum-body">
+            <h3 class="curriculum-title">Digital Art, UI/UX & Cinematography</h3>
+            <p class="curriculum-desc">Eksplorasi grafis komputer 3D, animasi interaktif, sinematografi dokumenter, dan portofolio desain untuk industri kreatif masa kini.</p>
+            <div class="curriculum-meta">
+              <span>Adobe Certified Studio</span>
+              <span>Pameran Karya Tahunan</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Admission Callout -->
-    <section class="admission-banner">
-      <h2>Penerimaan Peserta Didik Baru (PPDB) 2026/2027</h2>
-      <p>Pendaftaran gelombang reguler telah dibuka secara online. Konsultasikan jalur beasiswa prestasi dan unduh brosur kurikulum lengkap.</p>
-      <button class="btn-action" style="background:#FFF; color:#0369A1; font-weight:700; font-size:1rem; padding:0.75rem 2rem; border-radius:30px;" onclick="alert('Formulir Pendaftaran Online Siap Diintegrasikan dengan Database Kampus/Sekolah!')">Daftar Sekarang (Portal Online)</button>
-    </section>
-  </main>
+  <!-- Bulletin Board -->
+  <section class="bulletin-section" id="warta">
+    <div class="container">
+      <div class="bulletin-header">
+        <div>
+          <span class="hero-badge" style="margin-bottom:0.5rem;">Live Payload CMS Sync</span>
+          <h2 style="font-size:2.2rem; color:#FFF;">Papan Warta & Agenda Akademik</h2>
+          <p style="color:var(--text-muted); font-size:0.95rem;">Informasi resmi civitas akademika yang dikelola langsung oleh Staf TU melalui panel CMS No-Code.</p>
+        </div>
+        <button class="btn-cms-admin" onclick="openAddBulletinModal()">+ Tambah Warta Baru</button>
+      </div>
 
-  <!-- CMS Drawer -->
-  <div class="cms-drawer" id="cmsDrawer">
+      <div class="bulletin-list" id="bulletinList">
+        <!-- Loaded via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Admission PPDB -->
+  <section class="ppdb-section" id="ppdb">
+    <div class="container">
+      <div class="ppdb-banner">
+        <h2>Penerimaan Siswa Baru (PPDB) 2026/2027</h2>
+        <p>Jalur Beasiswa Prestasi dan Gelombang Reguler telah dibuka. Daftarkan putra-putri Anda dan jadwalkan sesi campus tour eksklusif hari ini.</p>
+        
+        <form class="ppdb-form" id="ppdbForm">
+          <input type="text" class="ppdb-input" placeholder="Nama Lengkap Calon Siswa" required id="regStudent">
+          <input type="text" class="ppdb-input" placeholder="Nama Orang Tua / Wali" required id="regParent">
+          <input type="tel" class="ppdb-input" placeholder="No. WhatsApp Aktif" required id="regPhone">
+          <select class="ppdb-input" id="regTrack">
+            <option value="Jalur Prestasi STEM">Jalur Beasiswa Prestasi STEM</option>
+            <option value="Jalur Kepemimpinan Global">Jalur Kepemimpinan Global</option>
+            <option value="Jalur Reguler Akademik">Jalur Reguler Akademik</option>
+          </select>
+          <button type="submit" class="btn-main" style="grid-column: 1 / -1; justify-content: center; font-size:1.05rem; background:#FFF; color:#0369A1; font-weight:800;">
+            Kirim Formulir Pendaftaran ke Panitia PPDB
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CMS Drawer Overlay -->
+  <div class="cms-overlay" id="cmsOverlay"></div>
+
+  <!-- Real Payload CMS Drawer -->
+  <aside class="cms-drawer" id="cmsDrawer">
     <div class="cms-header">
       <div>
-        <h3>Panel Staf / Admin Sekolah</h3>
-        <span style="font-size:0.75rem; color:#94A3B8;">Cakrawala Payload CMS Demo</span>
+        <h3 id="cmsModalTitle">Kelola Pengumuman Sekolah</h3>
+        <span style="font-size:0.75rem; color:#94A3B8;">Payload CMS • Collection: announcements</span>
       </div>
-      <button id="closeCmsBtn" style="background:none; border:none; color:#FFF; font-size:1.4rem; cursor:pointer;">&times;</button>
+      <button id="closeCmsBtn" style="background:none; border:none; color:#FFF; font-size:1.5rem; cursor:pointer;">&times;</button>
     </div>
     <div class="cms-body">
-      <div style="background:rgba(2, 132, 199, 0.15); border:1px solid rgba(2, 132, 199, 0.4); padding:0.75rem; border-radius:8px; font-size:0.82rem; color:#7DD3FC; margin-bottom:1.2rem;">
-        📌 <strong>No-Code Guru / Staf TU:</strong> Menambahkan pengumuman libur, jadwal ujian, atau prestasi sekolah semudah mengisi formulir biasa.
+      <div style="background:rgba(2, 132, 199, 0.15); border:1px solid rgba(2, 132, 199, 0.35); color:#7DD3FC; padding:0.9rem; border-radius:10px; font-size:0.85rem; margin-bottom:1.5rem;">
+        📢 <strong>Fitur CMS Sekolah:</strong> Staf admin dapat menambah pengumuman ujian, agenda libur, atau prestasi lomba. Perubahan tersimpan di LocalStorage browser secara permanen!
       </div>
 
-      <form id="addAnnounceForm">
+      <form id="bulletinCmsForm">
+        <input type="hidden" id="editBulletinId" value="">
         <div class="cms-field">
           <label>Judul Pengumuman</label>
-          <input type="text" id="annTitle" class="cms-input" placeholder="Misal: Jadwal Simulasi Ujian Mandiri" required>
+          <input type="text" id="bTitle" class="cms-input" placeholder="Misal: Sosialisasi Beasiswa Perguruan Tinggi Luar Negeri" required>
         </div>
         <div class="cms-field">
-          <label>Tanggal / Waktu</label>
-          <input type="text" id="annDate" class="cms-input" placeholder="18 Okt 2026" required>
+          <label>Tanggal Pelaksanaan / Penerbitan</label>
+          <input type="text" id="bDate" class="cms-input" placeholder="18 Okt 2026" required>
         </div>
         <div class="cms-field">
-          <label>Detail Keterangan</label>
-          <textarea id="annContent" class="cms-textarea" rows="3" placeholder="Deskripsi agenda dan instruksi untuk siswa/wali murid..." required></textarea>
+          <label>Kategori Warta</label>
+          <input type="text" id="bCategory" class="cms-input" placeholder="AKADEMIK / PRESTASI / PPDB" value="AKADEMIK" required>
         </div>
-        <button type="submit" class="cms-btn-submit">📢 Publikasikan ke Website Sekolah</button>
+        <div class="cms-field">
+          <label>Detail Keterangan & Instruksi</label>
+          <textarea id="bContent" class="cms-textarea" rows="4" placeholder="Jelaskan detail pengumuman dan tautan instruksi bagi siswa/wali murid..." required></textarea>
+        </div>
+        <button type="submit" class="cms-submit-btn" id="bSubmitBtn">📢 Terbitkan ke Website Sekolah</button>
       </form>
     </div>
-  </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div style="font-size:1.3rem; font-weight:800; color:#FFF; margin-bottom:0.5rem; font-family:'Cabinet Grotesk', sans-serif;">
+        Cakrawala Academy Global Campus
+      </div>
+      <p style="margin-bottom:1rem;">Kawasan Pendidikan Terpadu EduCity Kav. 8-12, Tangerang Selatan • Telp: (021) 7890-4455</p>
+      <p style="font-size:0.8rem; opacity:0.6;">
+        Website Company Profile ini dirancang oleh <strong>Dope IT Solution</strong> untuk demonstrasi sistem portal sekolah modern & CMS Payload/Moodle.
+      </p>
+    </div>
+  </footer>
 
   <script>
-    let announcements = [
+    const defaultBulletins = [
       {
         id: 1,
-        date: "14 Okt 2026",
-        title: "Sosialisasi Kurikulum Riset Bersama Perguruan Tinggi Mitra",
-        content: "Sesi webinar terbuka daring bersama dekan fakultas teknik bagi wali murid kelas XII persiapan seleksi masuk kampus."
+        day: "18",
+        month: "OKT",
+        date: "18 Okt 2026",
+        category: "PRESTASI",
+        title: "Medali Emas Olimpiade Robotika Antar Pelajar Asia Pasifik 2026",
+        content: "Tim Riset STEM Cakrawala Academy berhasil meraih juara pertama kompetisi Autonomous Drone di Tokyo Tech University. Selamat kepada seluruh tim dan guru pembina!"
       },
       {
         id: 2,
-        date: "22 Okt 2026",
-        title: "Olimpiade Sains & Robotika Antar Pelajar Se-Nasional",
-        content: "Tim Cakrawala Academy maju ke babak final kompetisi otomatisasi IOT di Surabaya. Mohon doa dan restu seluruh civitas akademika."
+        day: "25",
+        month: "OKT",
+        date: "25 Okt 2026",
+        category: "AKADEMIK",
+        title: "Webinar Pembekalan Beasiswa & Seleksi Kampus Ivy League",
+        content: "Sesi sharing langsung daring bersama alumni Cakrawala Academy di Harvard dan Oxford University terbuka gratis bagi seluruh orang tua dan murid kelas XI & XII."
       },
       {
         id: 3,
+        day: "02",
+        month: "NOV",
         date: "02 Nov 2026",
-        title: "Jadwal Evaluasi Tengah Semester & Konsultasi Rapor Digital",
-        content: "Hasil belajar siswa dapat diakses langsung oleh orang tua melalui akun e-Portal Cakrawala dengan autentikasi dua faktor."
+        category: "PPDB",
+        title: "Jadwal Tes Penempatan Bahasa & Observasi Bakat Gelombang 1",
+        content: "Bagi calon siswa pendaftar gelombang awal, verifikasi berkas dan asesmen kognitif akan dilaksanakan secara offline di Gedung Auditorium Utama."
       }
     ];
 
-    function renderAnnouncements() {
-      const container = document.getElementById('announcementList');
-      container.innerHTML = announcements.map(item => `
-        <div class="announcement-item">
-          <div class="announcement-date">${item.date}</div>
-          <div class="announcement-content">
-            <h4>${item.title}</h4>
-            <p>${item.content}</p>
+    function loadBulletins() {
+      const stored = localStorage.getItem('cakrawala_bulletin_data');
+      if (stored) {
+        try { return JSON.parse(stored); } catch(e) {}
+      }
+      return defaultBulletins;
+    }
+
+    function saveBulletins(items) {
+      localStorage.setItem('cakrawala_bulletin_data', JSON.stringify(items));
+    }
+
+    let bulletins = loadBulletins();
+
+    function renderBulletins() {
+      const list = document.getElementById('bulletinList');
+      if (bulletins.length === 0) {
+        list.innerHTML = `<div style="text-align:center; padding:3rem; color:var(--text-muted);">Belum ada warta diterbitkan. Klik tombol Tambah Warta Baru di atas.</div>`;
+        return;
+      }
+
+      list.innerHTML = bulletins.map(b => `
+        <div class="bulletin-card">
+          <div class="bulletin-date-box">
+            <div class="bulletin-date-day">${b.day || '15'}</div>
+            <div class="bulletin-date-month">${b.month || 'BLN'}</div>
+          </div>
+          <div class="bulletin-content">
+            <span style="font-size:0.75rem; background:rgba(14,165,233,0.15); color:var(--accent); padding:0.15rem 0.6rem; border-radius:4px; font-weight:700; display:inline-block; margin-bottom:0.4rem;">
+              ${b.category} • ${b.date}
+            </span>
+            <h4>${b.title}</h4>
+            <p>${b.content}</p>
+          </div>
+          <div class="bulletin-actions">
+            <button class="btn-bulletin-action" onclick="openEditBulletinModal(${b.id})">Edit</button>
+            <button class="btn-bulletin-action" style="color:#EF4444;" onclick="deleteBulletin(${b.id})">Hapus</button>
           </div>
         </div>
       `).join('');
     }
 
     const cmsDrawer = document.getElementById('cmsDrawer');
-    document.getElementById('openCmsBtn').addEventListener('click', () => cmsDrawer.classList.add('open'));
-    document.getElementById('closeCmsBtn').addEventListener('click', () => cmsDrawer.classList.remove('open'));
+    const cmsOverlay = document.getElementById('cmsOverlay');
+    const openCmsBtn = document.getElementById('openCmsBtn');
+    const closeCmsBtn = document.getElementById('closeCmsBtn');
 
-    document.getElementById('addAnnounceForm').addEventListener('submit', (e) => {
+    function toggleCms(open = true) {
+      if (open) {
+        cmsDrawer.classList.add('open');
+        cmsOverlay.classList.add('open');
+      } else {
+        cmsDrawer.classList.remove('open');
+        cmsOverlay.classList.remove('open');
+      }
+    }
+
+    openCmsBtn.addEventListener('click', () => openAddBulletinModal());
+    closeCmsBtn.addEventListener('click', () => toggleCms(false));
+    cmsOverlay.addEventListener('click', () => toggleCms(false));
+
+    window.openAddBulletinModal = function() {
+      document.getElementById('bulletinCmsForm').reset();
+      document.getElementById('editBulletinId').value = "";
+      document.getElementById('cmsModalTitle').textContent = "Terbitkan Warta Baru (Payload CMS)";
+      document.getElementById('bDate').value = "15 Nov 2026";
+      toggleCms(true);
+    };
+
+    window.openEditBulletinModal = function(id) {
+      const b = bulletins.find(x => x.id === id);
+      if (!b) return;
+
+      document.getElementById('editBulletinId').value = b.id;
+      document.getElementById('bTitle').value = b.title;
+      document.getElementById('bDate').value = b.date;
+      document.getElementById('bCategory').value = b.category;
+      document.getElementById('bContent').value = b.content;
+      document.getElementById('cmsModalTitle').textContent = "Edit Warta Sekolah";
+      toggleCms(true);
+    };
+
+    window.deleteBulletin = function(id) {
+      if (confirm('Yakin ingin menghapus pengumuman ini?')) {
+        bulletins = bulletins.filter(x => x.id !== id);
+        saveBulletins(bulletins);
+        renderBulletins();
+      }
+    };
+
+    document.getElementById('bulletinCmsForm').addEventListener('submit', (e) => {
       e.preventDefault();
-      const title = document.getElementById('annTitle').value.trim();
-      const date = document.getElementById('annDate').value.trim();
-      const content = document.getElementById('annContent').value.trim();
+      const editId = document.getElementById('editBulletinId').value;
+      const title = document.getElementById('bTitle').value.trim();
+      const date = document.getElementById('bDate').value.trim();
+      const category = document.getElementById('bCategory').value.trim().toUpperCase();
+      const content = document.getElementById('bContent').value.trim();
 
-      announcements.unshift({ id: Date.now(), title, date, content });
-      renderAnnouncements();
-      cmsDrawer.classList.remove('open');
-      document.getElementById('addAnnounceForm').reset();
-      alert(`Warta sekolah "${title}" sukses diterbitkan!`);
+      const parts = date.split(' ');
+      const day = parts[0] || '15';
+      const month = (parts[1] || 'OKT').substring(0, 3).toUpperCase();
+
+      if (editId) {
+        const idx = bulletins.findIndex(x => x.id === Number(editId));
+        if (idx !== -1) {
+          bulletins[idx] = { ...bulletins[idx], title, date, category, content, day, month };
+        }
+      } else {
+        bulletins.unshift({
+          id: Date.now(),
+          title,
+          date,
+          category,
+          content,
+          day,
+          month
+        });
+      }
+
+      saveBulletins(bulletins);
+      renderBulletins();
+      toggleCms(false);
+      alert(`Warta sekolah "${title}" berhasil disinkronkan ke website!`);
     });
 
-    renderAnnouncements();
+    // Handle PPDB Form Submission
+    document.getElementById('ppdbForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const student = document.getElementById('regStudent').value;
+      const parent = document.getElementById('regParent').value;
+      const phone = document.getElementById('regPhone').value;
+      const track = document.getElementById('regTrack').value;
+
+      const waMsg = `Halo Panitia PPDB Cakrawala Academy, saya ingin mendaftarkan calon siswa:\n\n• Nama Siswa: ${student}\n• Orang Tua: ${parent}\n• No. WhatsApp: ${phone}\n• Jalur Pendaftaran: ${track}\n\nMohon petunjuk kelengkapan berkas & jadwal tes. Terima kasih!`;
+      window.open(`https://wa.me/6289605333747?text=${encodeURIComponent(waMsg)}`, '_blank');
+    });
+
+    renderBulletins();
   </script>
 </body>
 </html>
